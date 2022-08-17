@@ -1,0 +1,78 @@
+Species
+    name = "SP_ABADDONI"
+    description = "SP_ABADDONI_DESC"
+    gameplay_description = "SP_ABADDONI_GAMEPLAY_DESC"
+    Native
+    CanProduceShips
+    CanColonize
+
+    tags = [ "LITHIC" "BAD_RESEARCH" "GOOD_INFLUENCE" "GOOD_HAPPINESS" "AVERAGE_SUPPLY" "PEDIA_LITHIC_SPECIES_CLASS" ] 
+
+    foci = [
+        [[HAS_INDUSTRY_FOCUS]]
+        [[HAS_RESEARCH_FOCUS]]
+        [[HAS_INFLUENCE_FOCUS]]
+        [[HAS_GROWTH_FOCUS]]
+        [[HAS_ADVANCED_FOCI]]
+    ]
+
+    defaultfocus = "FOCUS_INDUSTRY"
+    likes = [
+        "FOCUS_INDUSTRY"
+        "FOCUS_INFLUENCE"
+        "SHIMMER_SILK_SPECIAL"
+        "FRACTAL_GEODES_SPECIAL"
+        "SUPERCONDUCTOR_SPECIAL"
+        "MINERALS_SPECIAL"
+        "CRYSTALS_SPECIAL"
+        "COMPUTRONIUM_SPECIAL"
+        "BLD_MILITARY_COMMAND"
+        "PLC_DIVINE_AUTHORITY"
+        "PLC_CONFORMANCE"
+        "PLC_TERROR_SUPPRESSION"
+        "PLC_INDOCTRINATION"
+        "PLC_ISOLATION"
+        "PLC_COLONIZATION"
+        "PLC_ALGORITHMIC_RESEARCH"
+        ]
+        
+    dislikes = [
+        "BLD_COLLECTIVE_NET"
+        "BLD_MEGALITH"
+        "BLD_PLANET_DRIVE"
+        "BLD_GATEWAY_VOID"
+        "BLD_GAS_GIANT_GEN"
+        "PHILOSOPHER_SPECIAL"
+        "PLC_DIVERSITY"
+        "PLC_LIBERTY"
+        "PLC_CONFEDERATION"
+        "PLC_THINKTANKS"
+        "PLC_DEMOCRACY"
+        ]
+        
+    effectsgroups = [
+        [[AVERAGE_INDUSTRY]]
+        [[BAD_RESEARCH]]
+        [[GREAT_INFLUENCE]]
+        [[AVERAGE_STOCKPILE]]
+
+        [[AVERAGE_POPULATION]]
+        [[GOOD_HAPPINESS]]
+        [[AVERAGE_SUPPLY]]
+        [[BAD_DEFENSE_TROOPS]]
+        
+        // not for description
+        [[AVERAGE_PLANETARY_SHIELDS]]
+        [[AVERAGE_PLANETARY_DEFENSE]]
+        [[LARGE_PLANET]]
+        [[BROAD_EP]]
+        [[STANDARD_SHIP_SHIELDS]]
+    ]
+
+    [[INFERNO_BROAD_EP]]
+
+    graphic = "icons/species/abaddonnian.png"
+
+#include "common/*.macros"
+
+#include "/scripting/common/*.macros"

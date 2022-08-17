@@ -1,0 +1,84 @@
+Species
+    name = "SP_GYSACHE"
+    description = "SP_GYSACHE_DESC"
+    gameplay_description = "SP_GYSACHE_GAMEPLAY_DESC"
+    Playable
+    CanProduceShips
+    CanColonize
+
+    tags = [ "AVERAGE_POPULATION" "ORGANIC" "GOOD_INDUSTRY" "GOOD_RESEARCH" "BAD_WEAPONS" "AVERAGE_SUPPLY" "BAD_ATTACKTROOPS" "PEDIA_ORGANIC_SPECIES_CLASS"]
+
+    foci = [
+        [[HAS_INDUSTRY_FOCUS]]
+        [[HAS_RESEARCH_FOCUS]]
+        [[HAS_INFLUENCE_FOCUS]]
+        [[HAS_GROWTH_FOCUS]]
+        [[HAS_ADVANCED_FOCI]]
+    ]
+
+    likes = [
+        "FOCUS_INDUSTRY"
+        "FRACTAL_GEODES_SPECIAL"
+        "SUCCULENT_BARNACLES_SPECIAL"
+        "GAIA_SPECIAL"
+        "HONEYCOMB_SPECIAL"
+        "MINERALS_SPECIAL"
+        "CRYSTALS_SPECIAL"
+        "PLC_BOOTSTRAPPING"
+        "PLC_DIVERSITY"
+        "PLC_POPULATION"
+        "PLC_COLONIZATION"
+        "PLC_CONFORMANCE"
+        "PLC_CONTINUOUS_SCANNING"
+        "PLC_TERRAFORMING"
+        ]
+    
+    dislikes = [
+        "BLD_SPACE_ELEVATOR"
+        "BLD_SHIPYARD_AST"
+        "BLD_NEUTRONIUM_FORGE"
+        "BLD_MILITARY_COMMAND"
+        "RESONANT_MOON_SPECIAL"
+        "TIDAL_LOCK_SPECIAL"
+        "WORLDTREE_SPECIAL"
+        "POSITRONIUM_SPECIAL"
+        "PLC_BUREAUCRACY"
+        "PLC_CENTRALIZATION"
+        "PLC_METROPOLES"
+        "PLC_AUGMENTATION"
+        "PLC_ISOLATION"
+        "PLC_MARINE_RECRUITMENT"
+        "PLC_MARTIAL_LAW"
+        "PLC_THE_HUNT"
+        "PLC_NO_SUPPLY"
+        "PLC_RACIAL_PURITY"
+        "SP_NIGHTSIDERS"
+        ]
+
+    effectsgroups = [
+        [[GOOD_INDUSTRY]]
+        [[GOOD_RESEARCH]]
+        [[BAD_INFLUENCE]]
+        [[AVERAGE_STOCKPILE]]
+
+        [[AVERAGE_POPULATION]]
+        [[GOOD_HAPPINESS]]
+        [[AVERAGE_SUPPLY]]
+        [[BAD_DEFENSE_TROOPS]]
+        [[BAD_OFFENSE_TROOPS]]
+        [[BAD_WEAPONS]]
+
+        // not for description
+        [[AVERAGE_PLANETARY_SHIELDS]]
+        [[AVERAGE_PLANETARY_DEFENSE]]
+        [[LARGE_PLANET]]
+        [[STANDARD_SHIP_SHIELDS]]
+    ]
+
+    [[SWAMP_STANDARD_EP]]
+
+    graphic = "icons/species/gysache.png"
+
+#include "common/*.macros"
+
+#include "/scripting/common/*.macros"

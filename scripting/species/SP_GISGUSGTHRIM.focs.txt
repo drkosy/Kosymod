@@ -1,0 +1,73 @@
+Species
+    name = "SP_GISGUFGTHRIM"
+    description = "SP_GISGUFGTHRIM_DESC"
+    gameplay_description = "SP_GISGUFGTHRIM_GAMEPLAY_DESC"
+    Native
+    CanProduceShips
+
+    tags = [ "ORGANIC" "BAD_INDUSTRY" "GOOD_RESEARCH" "GOOD_HAPPINESS" "AVERAGE_SUPPLY" "BAD_ATTACKTROOPS" "PEDIA_ORGANIC_SPECIES_CLASS" ]
+
+    foci = [
+        [[HAS_INDUSTRY_FOCUS]]
+        [[HAS_RESEARCH_FOCUS]]
+        [[HAS_INFLUENCE_FOCUS]]
+        [[HAS_GROWTH_FOCUS]]
+        [[HAS_ADVANCED_FOCI]]
+    ]
+
+    defaultfocus = "FOCUS_RESEARCH"
+    
+    likes = [
+        "FOCUS_RESEARCH"
+        "FRACTAL_GEODES_SPECIAL"
+        "SPARK_FOSSILS_SPECIAL"
+        "SUCCULENT_BARNACLES_SPECIAL"
+        "MONOPOLE_SPECIAL"
+        "ELERIUM_SPECIAL"
+        "PROBIOTIC_SPECIAL"
+        "TEMPORAL_ANOMALY_SPECIAL"
+        "PLC_CAPITAL_MARKETS"
+        "PLC_ENVIRONMENTALISM"
+        "PLC_TECHNOCRACY"
+        "PLC_NO_SUPPLY"
+        ]
+        
+    dislikes = [
+        "BLD_PLANET_DRIVE"
+        "BLD_PLANET_BEACON"
+        "BLD_PLANET_CLOAK"
+        "BLD_SPATIAL_DISTORT_GEN"
+        "BLD_INDUSTRY_CENTER"
+        "BLD_BLACK_HOLE_POW_GEN"
+        "BLD_SPACE_ELEVATOR"
+        "KRAKEN_IN_THE_ICE_SPECIAL"
+        "RESONANT_MOON_SPECIAL"
+        "HONEYCOMB_SPECIAL"
+        "PLC_INDUSTRIALISM"
+        "PLC_NO_GROWTH"
+        ]
+
+    effectsgroups = [
+        [[BAD_INDUSTRY]]
+        [[GOOD_RESEARCH]]
+        [[BAD_INFLUENCE]]
+        [[AVERAGE_STOCKPILE]]
+
+        [[AVERAGE_POPULATION]]
+        [[GOOD_HAPPINESS]]
+        [[BAD_SUPPLY]]
+        [[BAD_DEFENSE_TROOPS]]
+        [[BAD_OFFENSE_TROOPS]]
+
+        // not for description
+        [[DEFAULT_NATIVE_DEFENSE]]
+        [[STANDARD_SHIP_SHIELDS]]
+    ]
+
+    [[TOXIC_STANDARD_EP]]
+
+    graphic = "icons/species/gis-guf-gthrim.png"
+
+#include "common/*.macros"
+
+#include "/scripting/common/*.macros"

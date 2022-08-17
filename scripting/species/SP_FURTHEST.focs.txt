@@ -1,0 +1,89 @@
+Species
+    name = "SP_FURTHEST"
+    description = "SP_FURTHEST_DESC"
+    gameplay_description = "SP_FURTHEST_GAMEPLAY_DESC"
+    Native
+
+    CanColonize
+
+    tags = [ "ORGANIC" "BAD_RESEARCH" "BAD_POPULATION" "BAD_SUPPLY" "AI_GOOD_DETECTION" "AI_GREAT_STEALTH" "PEDIA_ORGANIC_SPECIES_CLASS" "INDEPENDENT_HAPPINESS" ]
+
+    foci = [
+        [[HAS_INDUSTRY_FOCUS]]
+        [[HAS_RESEARCH_FOCUS]]
+        [[HAS_INFLUENCE_FOCUS]]
+        [[HAS_GROWTH_FOCUS]]
+        [[HAS_ADVANCED_FOCI]]
+    ]
+
+    defaultfocus = "FOCUS_GROWTH"
+    
+    likes = [
+        "FOCUS_GROWTH"
+        "FOCUS_DEFENSE"
+        "SHIMMER_SILK_SPECIAL"
+        "SUCCULENT_BARNACLES_SPECIAL"
+        "MIMETIC_ALLOY_SPECIAL"
+        "FRUIT_SPECIAL"
+        "PROBIOTIC_SPECIAL"
+        "SPICE_SPECIAL"
+        "MONOPOLE_SPECIAL"
+        "SUPERCONDUCTOR_SPECIAL"
+        "POSITRONIUM_SPECIAL"
+        "MINERALS_SPECIAL"
+        "ELIRIUM_SPECIAL"
+        "CRYSTALS_SPECIAL"
+        "FORTRESS_SPECIAL"
+        "TIDAL_LOCK_SPECIAL"
+        "GAIA_SPECIAL"
+        "PLC_CHECKPOINTS"
+        "PLC_POPULATION"
+        "PLC_ISOLATION"
+        "PLC_NO_SUPPLY"
+        ]
+        
+    dislikes = [
+        "FOCUS_INDUSTRY"
+        "FOCUS_RESEARCH"
+        "FOCUS_INFLUENCE"
+        "FOCUS_STOCKPILE"
+        "FOCUS_SUPPLY"
+        "BLD_INDUSTRY_CENTER"
+        "BLD_MEGALITH"
+        "BLD_SPACE_ELEVATOR"
+        "WORLDTREE_SPECIAL"
+        "COMPUTRONIUM_SPECIAL"
+        "ECCENTRIC_ORBIT_SPECIAL"
+        "PLC_BUREAUCRACY"
+        "PLC_DIVINE_AUTHORITY"
+        "PLC_COLONIALISM"
+        "PLC_CONTINUOUS_SCANNING"
+        "SP_NIGHTSIDERS"
+        ]
+
+    effectsgroups = [
+        [[AVERAGE_INDUSTRY]]
+        [[BAD_RESEARCH]]
+        [[BAD_INFLUENCE]]
+        [[AVERAGE_STOCKPILE]]
+
+        [[BAD_POPULATION]]
+        [[INDEPENDENT_HAPPINESS]]
+        [[BAD_SUPPLY]]
+        [[GOOD_DEFENSE_TROOPS]]
+
+        [[GOOD_DETECTION]]
+        [[GREAT_STEALTH]]
+
+        // not for description
+        [[DEFAULT_NATIVE_DEFENSE]]
+        [[STANDARD_SHIP_SHIELDS]]
+    ]
+
+    [[TUNDRA_STANDARD_EP]]
+
+    graphic = "icons/species/furthest.png"
+
+#include "common/*.macros"
+
+#include "/scripting/common/*.macros"

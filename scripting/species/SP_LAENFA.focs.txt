@@ -1,0 +1,112 @@
+Species
+    name = "SP_LAENFA"
+    description = "SP_LAENFA_DESC"
+    gameplay_description = "SP_LAENFA_GAMEPLAY_DESC"
+    Playable
+    CanProduceShips
+    CanColonize
+
+    tags = [ "PHOTOTROPHIC" "TELEPATHIC" "GOOD_POPULATION" "AVERAGE_SUPPLY" "GREAT_DETECTION" "GREAT_STEALTH" "BAD_ATTACKTROOPS" "PEDIA_PC_FUEL" "PEDIA_PHOTOTROPHIC_SPECIES_CLASS" "INDEPENDENT_HAPPINESS" "PEDIA_TELEPATHIC_TITLE" ]
+
+    foci = [
+        [[HAS_INDUSTRY_FOCUS]]
+        [[HAS_RESEARCH_FOCUS]]
+        [[HAS_INFLUENCE_FOCUS]]
+        [[HAS_GROWTH_FOCUS]]
+        [[HAS_ADVANCED_FOCI]]
+    ]
+
+    defaultfocus = "FOCUS_INDUSTRY"
+    likes = [
+        "FOCUS_INDUSTRY"
+        "FRUIT_SPECIAL"
+        "PANOPTICON_SPECIAL"
+        "POSITRONIUM_SPECIAL"
+        "SPARK_FOSSILS_SPECIAL"
+        "SUCCULENT_BARNACLES_SPECIAL"
+        "TIDAL_LOCK_SPECIAL"
+        "RESONANT_MOON_SPECIAL"
+        "PLC_BUREAUCRACY"
+        "PLC_CENTRALIZATION"
+        "PLC_CONFORMANCE"
+        "PLC_DIVERSITY"
+        "PLC_DIVINE_AUTHORITY"
+        "PLC_DREAM_RECURSION"
+        "PLC_ENVIRONMENTALISM"
+        "PLC_EXPLORATION"
+        "PLC_NATIVE_APPROPRIATION"
+        "PLC_COLONIZATION"
+        "PLC_POPULATION"
+        "SP_CELESTEPHYTE"               // because they too are telepathic plants
+    ]
+    dislikes = [
+        "BLD_SOL_ORB_GEN"
+        "BLD_ENCLAVE_VOID"
+        "BLD_LIGHTHOUSE"
+        "BLD_BIOTERROR_PROJECTOR"
+        "BLD_GAS_GIANT_GEN"
+        "BLD_PLANET_BEACON"
+        "ELERIUM_SPECIAL"
+        "WORLDTREE_SPECIAL"
+        "PLC_AUGMENTATION"
+        "PLC_EXOBOT_PRODUCTIVITY"
+        "PLC_CONTINUOUS_SCANNING"
+        "PLC_INDUSTRIALISM"
+        "PLC_MARINE_RECRUITMENT"
+        "PLC_RACIAL_PURITY"
+        "PLC_CONFEDERATION"
+        "PLC_DEMOCRACY"
+    ]
+
+    effectsgroups = [
+        [[AVERAGE_INDUSTRY]]
+        [[AVERAGE_RESEARCH]]
+        [[BAD_INFLUENCE]]
+        [[GOOD_STOCKPILE]]
+
+        [[GOOD_POPULATION]]
+        [[INDEPENDENT_HAPPINESS]]
+        [[AVERAGE_SUPPLY]]
+        [[BAD_DEFENSE_TROOPS]]
+        [[BAD_OFFENSE_TROOPS]]
+
+        [[GREAT_DETECTION]]
+        [[GREAT_STEALTH]]
+
+        // not for description
+        [[AVERAGE_PLANETARY_SHIELDS]]
+        [[AVERAGE_PLANETARY_DEFENSE]]
+        [[LARGE_PLANET]]
+        [[BROAD_EP]]
+        [[STANDARD_SHIP_SHIELDS]]
+        
+        // replenish fuel in suitably coloured star systems
+        EffectsGroup
+            description = "PHOTOTROP_DESC"
+            scope = Source
+            activation = And [
+                Ship
+                Stationary
+                InSystem
+                Star type = Blue
+            ]
+            effects = SetFuel value = Value + 1.9   // sums with natural 0.1 per turn to a nice round 2.0 per turn
+            
+        EffectsGroup
+            scope = Source
+            activation = And [
+                Ship
+                Stationary
+                InSystem
+                Star type = White
+            ]
+            effects = SetFuel value = Value + 0.9
+    ]
+
+    [[OCEAN_BROAD_EP]]
+
+    graphic = "icons/species/laenfa.png"
+
+#include "common/*.macros"
+
+#include "/scripting/common/*.macros"

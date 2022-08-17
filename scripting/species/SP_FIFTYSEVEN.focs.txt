@@ -1,0 +1,89 @@
+Species
+    name = "SP_FIFTYSEVEN"
+    description = "SP_FIFTYSEVEN_DESC"
+    gameplay_description = "SP_FIFTYSEVEN_GAMEPLAY_DESC"
+    Native
+
+    tags = [ "ORGANIC" "ARTISTIC" "NO_INDUSTRY" "ULTIMATE_RESEARCH" "BAD_POPULATION" "AVERAGE_SUPPLY" "PEDIA_ORGANIC_SPECIES_CLASS" "PEDIA_ARTISTIC" ]
+
+    foci = [
+        /*[[HAS_INDUSTRY_FOCUS]]*/
+        [[HAS_RESEARCH_FOCUS]]
+        /*[[HAS_INFLUENCE_FOCUS]]*/
+        [[HAS_GROWTH_FOCUS]]
+        [[HAS_ADVANCED_FOCI]]
+    ]
+
+    defaultfocus = "FOCUS_RESEARCH"
+    likes = [
+        "FOCUS_RESEARCH"
+        "SHIMMER_SILK_SPECIAL"
+        "SPARK_FOSSILS_SPECIAL"
+        "SPICE_SPECIAL"
+        "COMPUTRONIUM_SPECIAL"
+        "ELERIUM_SPECIAL"
+        "BLD_COLLECTIVE_NET"
+        "BLD_INTERSPECIES_ACADEMY"
+        "PLC_ALGORITHMIC_RESEARCH"
+        "PLC_DREAM_RECURSION"
+        "PLC_CONTINUOUS_SCANNING"
+        "PLC_CENTRALIZATION"
+        "PLC_DIVERSITY"
+        ]
+        
+    dislikes = [
+        "BLD_FIELD_REPELLOR"
+        "BLD_MILITARY_COMMAND"
+        "BLD_IMPERIAL_PALACE"
+        "BLD_ENCLAVE_VOID"
+        "BLD_GATEWAY_VOID"
+        "BLD_SHIPYARD_ENRG_COMP"
+        "PANOPTICON_SPECIAL"
+        "TEMPORAL_ANOMALY_SPECIAL"
+        "CRYSTALS_SPECIAL"
+        "PLC_DESIGN_SIMPLICITY"
+        "PLC_COLONIZATION"
+        "PLC_MARTIAL_LAW"
+        "PLC_MARINE_RECRUITMENT"
+        "PLC_PATRIOTISM"
+        "SP_NIGHTSIDERS" 
+        ]
+
+    effectsgroups = [
+        [[NO_INDUSTRY]]
+        [[ULTIMATE_RESEARCH]]
+        [[NO_INFLUENCE]]
+        [[AVERAGE_STOCKPILE]]
+
+        [[BAD_POPULATION]]
+        [[AVERAGE_HAPPINESS]]
+        [[AVERAGE_SUPPLY]]
+        [[BAD_DEFENSE_TROOPS]]
+
+        [[GOOD_STEALTH]]
+
+        // not for description
+        [[DEFAULT_NATIVE_DEFENSE]]
+        [[NOT_LARGE_PLANET]]
+
+        [[STANDARD_SHIP_SHIELDS]]
+
+        EffectsGroup
+            scope = Source
+            activation = And [
+                Planet
+                Turn high = 0
+                (GalaxyMaxAIAggression >= 1)
+                (GalaxyMonsterFrequency >= 1)
+            ]
+            effects = CreateShip designname = "SM_DRAGON"
+
+    ]
+
+    [[SWAMP_STANDARD_EP]]
+
+    graphic = "icons/species/fifty-seven.png"
+
+#include "common/*.macros"
+
+#include "/scripting/common/*.macros"

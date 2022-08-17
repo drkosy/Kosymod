@@ -1,0 +1,87 @@
+Species
+    name = "SP_ETTY"
+    description = "SP_ETTY_DESC"
+    gameplay_description = "SP_ETTY_GAMEPLAY_DESC"
+    Playable
+    CanProduceShips
+    CanColonize
+
+    tags = [ "ROBOTIC" "BAD_INDUSTRY" "GOOD_WEAPONS" "GREAT_SUPPLY" "BAD_DETECTION" "GOOD_STEALTH" "PEDIA_ROBOTIC_SPECIES_CLASS" ]
+
+    foci = [
+        [[HAS_INDUSTRY_FOCUS]]
+        [[HAS_RESEARCH_FOCUS]]
+        [[HAS_INFLUENCE_FOCUS]]
+        [[HAS_GROWTH_FOCUS]]
+        [[HAS_ADVANCED_FOCI]]
+    ]
+
+    defaultfocus = "FOCUS_RESEARCH"
+    
+    likes = [
+        "FOCUS_RESEARCH"
+        "FOCUS_INFLUENCE"
+        "BLD_INTERSPECIES_ACADEMY"
+        "BLD_MILITARY_COMMAND"
+        "MIMETIC_ALLOY_SPECIAL"
+        "SPARK_FOSSILS_SPECIAL"
+        "SUPERCONDUCTOR_SPECIAL"
+        "PROBIOTIC_SPECIAL"
+        "COMPUTRONIUM_SPECIAL"
+        "FORTRESS_SPECIAL"
+        "PLC_ALLIED_REPAIR"
+        "PLC_CENTRALIZATION"
+        "PLC_DEMOCRACY"
+        "PLC_CONTINUOUS_SCANNING"
+        "PLC_BUREAUCRACY"
+        "PLC_ALGORITHMIC_RESEARCH"
+        ]
+        
+    dislikes = [
+        "BLD_SHIPYARD_AST"
+        "BLD_SHIPYARD_AST_REF"
+        "BLD_SPATIAL_DISTORT_GEN"
+        "BLD_SPACE_ELEVATOR"
+        "BLD_STOCKPILING_CENTER"
+        "BLD_LIGHTHOUSE"
+        "BLD_SOL_ORB_GEN"
+        "FRUIT_SPECIAL"
+        "ELERIUM_SPECIAL"
+        "ECCENTRIC_ORBIT_SPECIAL"
+        "TIDAL_LOCK_SPECIAL"
+        "PLC_CONFEDERATION"
+        "PLC_NATIVE_APPROPRIATION"
+        "PLC_INDUSTRIALISM"
+        "PLC_EXOBOT_PRODUCTIVITY"
+        ]
+
+    effectsgroups = [
+        [[BAD_INDUSTRY]]
+        [[AVERAGE_RESEARCH]]
+        [[GREAT_INFLUENCE]]
+        [[AVERAGE_STOCKPILE]]
+
+        [[AVERAGE_POPULATION]]
+        [[AVERAGE_HAPPINESS]]
+        [[GREAT_SUPPLY]]
+        [[AVERAGE_DEFENSE_TROOPS]]
+
+        [[GOOD_WEAPONS]]
+
+        [[BAD_DETECTION]]
+        [[GOOD_STEALTH]]
+
+        // not for description
+        [[AVERAGE_PLANETARY_SHIELDS]]
+        [[AVERAGE_PLANETARY_DEFENSE]]
+        [[LARGE_PLANET]]
+        [[STANDARD_SHIP_SHIELDS]]
+    ]
+
+    [[DESERT_STANDARD_EP]]
+
+    graphic = "icons/species/etty.png"
+
+#include "common/*.macros"
+
+#include "/scripting/common/*.macros"

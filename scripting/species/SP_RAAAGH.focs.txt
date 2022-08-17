@@ -1,0 +1,79 @@
+Species
+    name = "SP_RAAAGH"
+    description = "SP_RAAAGH_DESC"
+    gameplay_description = "SP_RAAAGH_GAMEPLAY_DESC"
+    Native
+    CanProduceShips
+    
+    tags = [ "ORGANIC" "BAD_INDUSTRY" "NO_RESEARCH" "BAD_SUPPLY" "PRIMITIVE" "PEDIA_ORGANIC_SPECIES_CLASS" ]
+
+    foci = [
+        [[HAS_INDUSTRY_FOCUS]]
+        /*[[HAS_RESEARCH_FOCUS]]*/
+        /*[[HAS_INFLUENCE_FOCUS]]*/
+        [[HAS_GROWTH_FOCUS]]
+        [[HAS_ADVANCED_FOCI]]
+    ]
+
+    defaultfocus = "FOCUS_PROTECTION"
+    likes = [
+        "FOCUS_PROTECTION"
+        "MIMETIC_ALLOY_SPECIAL"
+        "SPARK_FOSSILS_SPECIAL"
+        "BLD_BLACK_HOLE_POW_GEN"
+        "BLD_NEUTRONIUM_EXTRACTOR"
+        "BLD_MILITARY_COMMAND"
+        "HONEYCOMB_SPECIAL"
+        "FORTRESS_SPECIAL"
+        "RESONANT_MOON_SPECIAL"
+        "FRUIT_SPECIAL"
+        "PLC_CONFEDERATION"
+        "PLC_ISOLATION"
+        "PLC_DIVINE_AUTHORITY"
+        "PLC_MARTIAL_LAW"
+        ]
+        
+    dislikes = [
+        "FOCUS_INDUSTRY"
+        "BLD_SCRYING_SPHERE"
+        "BLD_SPACE_ELEVATOR"
+        "BLD_INTERSPECIES_ACADEMY"
+        "BLD_GENOME_BANK"
+        "BLD_PLANET_CLOAK"
+        "BLD_SHIPYARD_CON_GEOINT"
+        "BLD_INDUSTRY_CENTER"
+        "PANOPTICON_SPECIAL"
+        "SNOWFLAKE_NEST_SPECIAL"
+        "PROBIOTIC_SPECIAL"
+        "PLC_INTERSTELLAR_INFRA"
+        "PLC_ALLIED_REPAIR"
+        "SP_NIGHTSIDERS" ]
+
+    effectsgroups = [
+        [[BAD_INDUSTRY]]
+        [[NO_RESEARCH]]
+        [[NO_INFLUENCE]]
+        [[AVERAGE_STOCKPILE]]
+
+        [[AVERAGE_POPULATION]]
+        [[AVERAGE_HAPPINESS]]
+        [[BAD_SUPPLY]]
+        [[ULTIMATE_DEFENSE_TROOPS]]
+        [[GREAT_OFFENSE_TROOPS]]
+        [[BAD_WEAPONS]]
+
+        // not for description
+        [[DEFAULT_NATIVE_DEFENSE]]
+        [[STANDARD_SHIP_SHIELDS]]
+    ]
+
+    [[TERRAN_STANDARD_EP]]
+
+    spawnrate = 1
+    spawnlimit = 1
+
+    graphic = "icons/species/raaagh.png"
+
+#include "common/*.macros"
+
+#include "/scripting/common/*.macros"
