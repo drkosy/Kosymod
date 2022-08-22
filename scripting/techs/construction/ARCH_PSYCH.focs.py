@@ -10,9 +10,9 @@ Tech(
     tags=["PEDIA_CONSTRUCTION_CATEGORY", "THEORY"],
     prerequisites="CON_ASYMP_MATS",
     unlock= [
-        Item(type=Policy, name="PLC_MODERATION"),
-        Item(type=Policy, name="PLC_THINKTANKS"),
-        Item(type=Policy, name="PLC_RACIAL_PURITY")
+        Item(type=UnlockPolicy, name="PLC_MODERATION"),
+        Item(type=UnlockPolicy, name="PLC_THINKTANKS"),
+        Item(type=UnlockPolicy, name="PLC_RACIAL_PURITY")
         ],
     effectsgroups=EffectsGroup(
         scope=Source,

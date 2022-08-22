@@ -9,6 +9,6 @@ Tech(
     researchturns=3,
     tags=["PEDIA_GROWTH_CATEGORY", "THEORY"],
     prerequisites="GRO_SUBTER_HAB",
-    unlock=Item(type=Building, name="BLD_BIOSPHERE"),
+    unlock=Item(type=UnlockBuilding, name="BLD_BIOSPHERE"),
     graphic="icons/tech/advanced_eco_man.png",
 )

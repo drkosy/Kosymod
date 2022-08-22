@@ -9,6 +9,17 @@ STANDARD_INDUSTRY_BOOST
                                      value = 1.0 * [[INDUSTRY_PER_POP]])
 '''
 
+STANDARD_RESEARCH_BOOST
+'''EffectsGroup
+            description = "GROWTH_SPECIAL_RESEARCH_BOOST"
+            scope = Source
+            activation = Focus type = "FOCUS_RESEARCH"
+            priority = [[TARGET_AFTER_2ND_SCALING_PRIORITY]]
+            effects = SetTargetResearch value = Value + Target.Population
+                        * (NamedReal name = "GROWTH_SPECIAL_TARGET_RESEARCH_PERPOP"
+                                     value = 1.0 * [[RESEARCH_PER_POP]])
+'''
+
 // argument 1 is the name of the used stacking group
 POPULATION_BOOST_ORGANIC
 '''

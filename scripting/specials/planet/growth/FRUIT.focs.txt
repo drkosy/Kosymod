@@ -16,6 +16,7 @@ Special
         ]
     ]
     effectsgroups = [
+        [[STANDARD_RESEARCH_BOOST]]
         [[POPULATION_BOOST_ORGANIC(FRUIT)]]
         [[CHANCE_OF_GUARD_1]]
         [[SPECIAL_LIKES_OR_DISLIKES_SPECIAL_STABILITY_EFFECTS]]

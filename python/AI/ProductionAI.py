@@ -24,9 +24,10 @@ import PlanetUtilsAI
 import PriorityAI
 from AIDependencies import INVALID_ID, Tags
 from aistate_interface import get_aistate
-from buildings import BuildingType, Shipyard, get_empire_drydocks
+from buildings import BuildingType, BuildingTypeBase, Shipyard, get_empire_drydocks
 from character.character_module import Aggression
 from colonization import rate_planetary_piloting
+from colonization.colony_score import MINIMUM_COLONY_SCORE
 from colonization.rate_pilots import GREAT_PILOT_RATING
 from common.fo_typing import BuildingName, PlanetId, SystemId
 from empire.buildings_locations import get_best_pilot_facilities
@@ -785,7 +786,7 @@ def generate_production_orders():
     colony_bldg_entries = [
         entry
         for entry in aistate.colonisablePlanetIDs.items()
-        if entry[1][0] > 60
+        if entry[1][0] > MINIMUM_COLONY_SCORE
         and entry[0] not in queued_clny_bld_locs
         and entry[0] in get_empire_outposts()
         and not already_has_completed_colony_building(entry[0])
@@ -796,6 +797,9 @@ def generate_production_orders():
         building_name = "BLD_COL_" + entry[1][1][3:]
         planet = universe.getPlanet(pid)
         building_type = fo.getBuildingType(building_name)
+        # We may have conquered a planet with a queued colony.
+        # If we want to build another species, we have to remove the queued one.
+        _remove_other_colonies(pid, building_name)
         if not (building_type and building_type.canBeEnqueued(empire.empireID, pid)):
             continue
         res = fo.issueEnqueueBuildingProductionOrder(building_name, pid)
@@ -1440,7 +1444,7 @@ def _location_rating(planet: fo.planet) -> float:
 
 
 def _try_enqueue(
-    building_type: BuildingType,
+    building_type: BuildingTypeBase,
     candidates: Union[PlanetId, Iterable[PlanetId]],
     *,
     at_front: bool = False,
@@ -1483,7 +1487,7 @@ def _try_enqueue(
     return 0.0
 
 
-def _may_enqueue_for_stability(building_type: BuildingType, new_turn_cost: float) -> float:
+def _may_enqueue_for_stability(building_type: BuildingTypeBase, new_turn_cost: float) -> float:
     """
     Build building if it seems worth doing so to increase stability.
     Only builds of locations.planets_enqueued is empty and new_turn_cost is 0.0,
@@ -2002,3 +2006,17 @@ def _build_orbital_drydock(top_pilot_systems: TopPilotSystems) -> None:
                     system_id = universe.getPlanet(pid).systemID
                     covered_drydock_systems.add(system_id)
                     covered_drydock_systems.update(get_neighbors(system_id))
+
+
+def _remove_other_colonies(pid: PlanetId, building_name: str) -> None:
+    """
+    Removes enqueued colony buildings at the given planet.
+    Since colonies cannot be queued in parallel, to allow enqueuing building_name, all others must be removed.
+    If building_name is already enqueued, it's fine of course.
+    """
+    numbered_queue = list(enumerate(fo.getEmpire().productionQueue))
+    # It should not be more than one, except possibly when loading an old safe file, just to be sure, remove all.
+    # Start at the end to avoid changing the numbers of further elements when removing one.
+    for num, entry in reversed(numbered_queue):
+        if entry.locationID == pid and entry.name.startswith("BLD_COL_") and entry.name != building_name:
+            fo.issueDequeueProductionOrder(num)

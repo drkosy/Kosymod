@@ -10,8 +10,8 @@ Tech(
     tags=["PEDIA_CONSTRUCTION_CATEGORY"],
     prerequisites="CON_ASYMP_MATS",
     unlock= [
-        Item(type=Building, name="BLD_SPACE_ELEVATOR"),
-        Item(type=Policy, name="PLC_METROPOLES"),
+        Item(type=UnlockBuilding, name="BLD_SPACE_ELEVATOR"),
+        Item(type=UnlockPolicy, name="PLC_METROPOLES"),
     ],
     graphic="icons/tech/architectural_monofilaments.png",
 )

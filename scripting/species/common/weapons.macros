@@ -10,6 +10,8 @@ BAD_WEAPONS
                     DesignHasPart name = "SR_WEAPON_2_1"
                     DesignHasPart name = "SR_WEAPON_3_1"
                     DesignHasPart name = "SR_WEAPON_4_1"
+                    DesignHasPart name = "SR_WEAPON_DR"
+                    DesignHasPart name = "SR_WEAPON_PHASOR_1"
                 ]
             ]
             effects = [
@@ -17,6 +19,8 @@ BAD_WEAPONS
                 SetMaxDamage partname = "SR_WEAPON_2_1" value = Value - ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 2)
                 SetMaxDamage partname = "SR_WEAPON_3_1" value = Value - ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 3)
                 SetMaxDamage partname = "SR_WEAPON_4_1" value = Value - ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 5)
+                SetMaxDamage partname = "SR_WEAPON_DR" value = Value - ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 7)
+                SetMaxDamage partname = "SR_WEAPON_PHASOR_1" value = Value - ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 4)
             ]
 
         EffectsGroup
@@ -59,6 +63,8 @@ GOOD_WEAPONS
                     DesignHasPart name = "SR_WEAPON_2_1"
                     DesignHasPart name = "SR_WEAPON_3_1"
                     DesignHasPart name = "SR_WEAPON_4_1"
+                    DesignHasPart name = "SR_WEAPON_DR"
+                    DesignHasPart name = "SR_WEAPON_PHASOR_1"
                 ]
             ]
             effects = [
@@ -66,6 +72,8 @@ GOOD_WEAPONS
                 SetMaxDamage partname = "SR_WEAPON_2_1" value = Value + ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 2)
                 SetMaxDamage partname = "SR_WEAPON_3_1" value = Value + ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 3)
                 SetMaxDamage partname = "SR_WEAPON_4_1" value = Value + ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 5)
+                SetMaxDamage partname = "SR_WEAPON_DR" value = Value + ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 7)
+                SetMaxDamage partname = "SR_WEAPON_PHASOR_1" value = Value + ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 4)
             ]
 
         EffectsGroup
@@ -108,6 +116,8 @@ GREAT_WEAPONS
                     DesignHasPart name = "SR_WEAPON_2_1"
                     DesignHasPart name = "SR_WEAPON_3_1"
                     DesignHasPart name = "SR_WEAPON_4_1"
+                    DesignHasPart name = "SR_WEAPON_DR"
+                    DesignHasPart name = "SR_WEAPON_PHASOR_1"
                 ]
             ]
             effects = [
@@ -115,6 +125,8 @@ GREAT_WEAPONS
                 SetMaxDamage partname = "SR_WEAPON_2_1" value = Value + ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 4)
                 SetMaxDamage partname = "SR_WEAPON_3_1" value = Value + ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 6)
                 SetMaxDamage partname = "SR_WEAPON_4_1" value = Value + ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 10)
+                SetMaxDamage partname = "SR_WEAPON_DR" value = Value + ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 14)
+                SetMaxDamage partname = "SR_WEAPON_PHASOR_1" value = Value + ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 8)
             ]
 
         EffectsGroup
@@ -157,6 +169,8 @@ ULTIMATE_WEAPONS
                     DesignHasPart name = "SR_WEAPON_2_1"
                     DesignHasPart name = "SR_WEAPON_3_1"
                     DesignHasPart name = "SR_WEAPON_4_1"
+                    DesignHasPart name = "SR_WEAPON_DR"
+                    DesignHasPart name = "SR_WEAPON_PHASOR_1"
                 ]
             ]
             effects = [
@@ -164,6 +178,8 @@ ULTIMATE_WEAPONS
                 SetMaxDamage partname = "SR_WEAPON_2_1" value = Value + ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 6)
                 SetMaxDamage partname = "SR_WEAPON_3_1" value = Value + ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 9)
                 SetMaxDamage partname = "SR_WEAPON_4_1" value = Value + ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 15)
+                SetMaxDamage partname = "SR_WEAPON_DR" value = Value + ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 21)
+                SetMaxDamage partname = "SR_WEAPON_PHASOR_1" value = Value + ([[SHIP_WEAPON_DAMAGE_FACTOR]] * 12)
             ]
 
         EffectsGroup
