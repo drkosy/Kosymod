@@ -3,9 +3,9 @@ Policy
     description = "PLC_INTERSTELLAR_INFRA_DESC"
     short_description = "PLC_INTERSTELLAR_INFRA_SHORT_DESC"
     category = "ECONOMIC_CATEGORY"
-    adoptioncost = floor(50 + 3.0 * [[POPULATION_OWNED_BY_EMPIRE]]^0.5)
+    adoptioncost = floor(60 + 3.0 * [[POPULATION_OWNED_BY_EMPIRE]]^0.5)
     prerequisites = [ "PLC_SYSTEM_INFRA" ]
-    exclusions = [ "PLC_CENTRALIZATION" ]
+    exclusions = [ "PLC_CENTRALIZATION" "PLC_METROPOLES" ]
     unlock = Item type = Building name = "BLD_REGIONAL_ADMIN"
     effectsgroups = [
         [[SPECIES_LIKES_OR_DISLIKES_POLICY_STABILITY_EFFECTS]]
@@ -14,6 +14,16 @@ Policy
             scope = Source
             priority = [[TARGET_AFTER_SCALING_PRIORITY]]
             effects = SetEmpireMeter empire = Source.Owner meter = "ECONOMIC_CATEGORY_NUM_POLICY_SLOTS" value = Value + 2
+                
+        EffectsGroup
+            scope = And [
+                Planet
+                OwnedBy empire = Source.Owner
+                Species
+            ]
+            priority = [[TARGET_AFTER_SCALING_PRIORITY]]
+            effects = SetTargetHappiness value = Value + min(2, max(0, 0.05*[[PLANETS_OWNED_BY_EMPIRE]] - 1))
+                
         
         EffectsGroup
             scope = And [
@@ -27,14 +37,6 @@ Policy
                 ]
             ]
             effects = SetTargetConstruction value = Value + 5
-        
-        EffectsGroup
-            scope = And [
-                Capital
-                OwnedBy empire = Source.Owner
-            ]
-            effects = SetMaxSupply value = Value + (NamedReal name = "PLC_INTER_INFRA_MAX_SUPPLY_FLAT" value = 1)
-                
     ]
     graphic = "icons/policies/economic_interstellar_infrastructure.png"
 

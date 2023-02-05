@@ -5,10 +5,10 @@ Tech(
     description="SHP_MIL_ROBO_CONT_DESC",
     short_description="SHIP_HULL_UNLOCK_SHORT_DESC",
     category="SHIP_HULLS_CATEGORY",
-    researchcost=12 * TECH_COST_MULTIPLIER,
+    researchcost=24 * TECH_COST_MULTIPLIER,
     researchturns=3,
     tags=["PEDIA_ROBOTIC_HULL_TECHS"],
-    prerequisites="PRO_ROBOTIC_PROD",
+    prerequisites=["PRO_ROBOTIC_PROD"],
     unlock=[
         Item(type=UnlockShipHull, name="SH_ROBOTIC"),
         Item(type=UnlockShipPart, name="SH_ROBOTIC_INTERFACE_SHIELDS"),

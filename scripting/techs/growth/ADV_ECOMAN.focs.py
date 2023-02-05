@@ -5,10 +5,10 @@ Tech(
     description="GRO_ADV_ECOMAN_DESC",
     short_description="THEORY_SHORT_DESC",
     category="GROWTH_CATEGORY",
-    researchcost=50 * TECH_COST_MULTIPLIER,
+    researchcost=78 * TECH_COST_MULTIPLIER,
     researchturns=3,
     tags=["PEDIA_GROWTH_CATEGORY", "THEORY"],
-    prerequisites="GRO_SUBTER_HAB",
+    prerequisites=["GRO_SUBTER_HAB"],
     unlock=Item(type=UnlockBuilding, name="BLD_BIOSPHERE"),
     graphic="icons/tech/advanced_eco_man.png",
 )

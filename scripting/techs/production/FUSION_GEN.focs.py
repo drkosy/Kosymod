@@ -5,17 +5,17 @@ Tech(
     description="PRO_FUSION_GEN_DESC",
     short_description="INDUSTRY_SHORT_DESC",
     category="PRODUCTION_CATEGORY",
-    researchcost=24
+    researchcost=48
     * TECH_COST_MULTIPLIER
     * (1 - 0.25 * StatisticIf(float, condition=EmpireHasAdoptedPolicy(empire=Source.Owner, name="PLC_INDUSTRIALISM"))),
     researchturns=3,
     tags=["PEDIA_PRODUCTION_CATEGORY"],
-    prerequisites="PRO_ROBOTIC_PROD",
+    prerequisites=["PRO_ROBOTIC_PROD"],
     effectsgroups=[
         EffectsGroup(
             scope=ProductionCenter
             & OwnedBy(empire=Source.Owner)
-            & Focus(type="FOCUS_INDUSTRY")
+            & Focus(type=["FOCUS_INDUSTRY"])
             & Happiness(low=NamedReal(name="PRO_FUSION_GEN_MIN_STABILITY", value=18)),
             effects=SetTargetIndustry(
                 value=Value

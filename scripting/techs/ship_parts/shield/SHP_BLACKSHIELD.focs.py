@@ -5,10 +5,10 @@ Tech(
     description="SHP_BLACKSHIELD_DESC",
     short_description="SHIP_PART_UNLOCK_SHORT_DESC",
     category="SHIP_PARTS_CATEGORY",
-    researchcost=3750 * TECH_COST_MULTIPLIER,
+    researchcost=2500 * TECH_COST_MULTIPLIER,
     researchturns=10,
     tags=["PEDIA_SHIELD_PART_TECHS"],
-    prerequisites="SHP_PLASMA_SHIELD",
+    prerequisites=["SHP_PLASMA_SHIELD"],
     unlock=Item(type=UnlockShipPart, name="SH_BLACK"),
     graphic="icons/ship_parts/blackshield.png",
 )

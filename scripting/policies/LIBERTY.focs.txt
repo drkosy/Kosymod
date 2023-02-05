@@ -28,10 +28,9 @@ Policy
             priority = [[TARGET_AFTER_SCALING_PRIORITY]]
             effects = SetTargetResearch value = Value +
                 (min(Target.Happiness, (NamedReal name = "PLC_LIBERTY_MAX_STABILITY" value = 20)) - NamedRealLookup name = "PLC_LIBERTY_MIN_STABILITY")
-                * (Target.Population * (NamedReal name = "PLC_LIBERTY_RESEARCH_BONUS_SCALING" value = 0.02) + (NamedReal name = "PLC_LIBERTY_DEMOCRACY_BONUS" value = 0.01) * (Statistic If condition = And [Source EmpireHasAdoptedPolicy empire = Source.Owner name = "PLC_DEMOCRACY"]))
+                * Target.Population * ((NamedReal name = "PLC_LIBERTY_RESEARCH_BONUS_SCALING" value = 0.02) + 0.01 * Statistic If condition = And [Source EmpireHasAdoptedPolicy empire = Source.Owner name = "PLC_DEMOCRACY"])
     ]
     graphic = "icons/policies/social_liberty.png"
 
-#include "/scripting/common/base_prod.macros"
 #include "/scripting/policies/policies.macros"
 #include "/scripting/common/priorities.macros"

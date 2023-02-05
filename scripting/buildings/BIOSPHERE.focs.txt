@@ -19,8 +19,12 @@ BuildingType
                 Planet
             ]
             priority = [[TARGET_POPULATION_AFTER_SCALING_PRIORITY]]
-            effects = SetTargetPopulation value = Value 
-                + (NamedReal name = "BLD_BIOSPHERE_POPULATON_FLAT" value = 4)
+            effects = [
+            SetTargetPopulation value = Value 
+                + (NamedReal name = "BLD_BIOSPHERE_POPULATON_FLAT" value = 2)
+                + (NamedReal name = "BLD_BIOSPHERE_TECH_BONUS1" value = 2) * Statistic If condition = And [Source OwnerHasTech name = "CON_NDIM_STRC"]
+                + (NamedReal name = "BLD_BIOSPHERE_TECH_BONUS2" value = 1) * Statistic If condition = And [Source OwnerHasTech name = "GRO_GAIA_TRANS"]
+            SetTargetHappiness value = Value + (NamedReal name = "BLD_BIOSPHERE_HAPPY_BONUS" value = 2) * Statistic If condition = And [Source EmpireHasAdoptedPolicy empire = Target.Owner name = "PLC_POPULATION"]]
     ]
     icon = "icons/building/camp.png"
 

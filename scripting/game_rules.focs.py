@@ -23,7 +23,7 @@ GameRule(
     description="RULE_TECH_COST_FACTOR_DESC",
     category="BALANCE",
     type=float,
-    default=2.0,
+    default=1.0,
     min=0.1,
     max=10.0,
 )
@@ -312,7 +312,7 @@ GameRule(
     description="RULE_MINIMUM_MONSTER_DISTANCE_CAPITAL_DESC",
     category="BALANCE",
     type=int,
-    default=4,
+    default=3,
     min=1,
     max=10,
 )

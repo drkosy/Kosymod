@@ -9,7 +9,7 @@ Policy
         Item type = Policy name = "PLC_CAPITAL_MARKETS"
         Item type = Policy name = "PLC_BUREAUCRACY"
         Item type = Policy name = "PLC_INTERSTELLAR_INFRA"
-        Item type = Policy name = "PLC_CENTRALIZATION"
+        Item type = Policy name = "PLC_METROPOLES"
     ]
     effectsgroups = [
         [[SPECIES_LIKES_OR_DISLIKES_POLICY_STABILITY_EFFECTS]]

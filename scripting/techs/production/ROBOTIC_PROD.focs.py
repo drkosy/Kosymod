@@ -6,14 +6,14 @@ Tech(
     description="PRO_ROBOTIC_PROD_DESC",
     short_description="INDUSTRY_SHORT_DESC",
     category="PRODUCTION_CATEGORY",
-    researchcost=12 * TECH_COST_MULTIPLIER,
+    researchcost=24 * TECH_COST_MULTIPLIER,
     researchturns=3,
     tags=["PEDIA_PRODUCTION_CATEGORY"],
     effectsgroups=[
         EffectsGroup(
             scope=ProductionCenter
             & OwnedBy(empire=Source.Owner)
-            & Focus(type="FOCUS_INDUSTRY")
+            & Focus(type=["FOCUS_INDUSTRY"])
             & Happiness(low=NamedReal(name="PRO_ROBOTIC_PROD_MIN_STABILITY", value=5)),
             priority=TARGET_AFTER_SCALING_PRIORITY,
             effects=SetTargetIndustry(

@@ -12,5 +12,5 @@ Tech(
     tags=[ "PEDIA_SR_WEAPON_TECHS" ],
     unlock=Item(type=UnlockShipPart, name="SR_WEAPON_DR"),
     effectsgroups=WEAPON_BASE_EFFECTS("SR_WEAPON_DR"),
-    graphic="icons/ship_parts/ion_cannon.png",
+    graphic = "icons/ship_parts/ion_cannon.png",
 )

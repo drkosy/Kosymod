@@ -9,7 +9,7 @@ Tech(
     researchcost=5000 * TECH_COST_MULTIPLIER,
     researchturns=12,
     tags=[ "PEDIA_SR_WEAPON_TECHS" ],
-    prerequisites="SHP_WEAPON_DR",
+    prerequisites=["SHP_WEAPON_DR"],
     effectsgroups=WEAPON_UPGRADE_CAPACITY_EFFECTS("SR_WEAPON_DR", 7),
     graphic = "icons/ship_parts/ion_cannon.png",
 )

@@ -45,6 +45,7 @@ from character.character_strings_module import (
 from common.handlers import init_handlers
 from common.listeners import listener
 from empire.survey_universe import survey_universe
+from expansion_plans.expansion_plans_implementation import initialise_expansion_plans
 from freeorion_tools import chat_human
 from freeorion_tools.timers import AITimer
 from generate_orders import (
@@ -56,6 +57,8 @@ from generate_orders import (
     set_game_turn_seed,
     update_resource_pool,
 )
+
+initialise_expansion_plans()
 
 turn_timer = AITimer("full turn")
 
@@ -339,7 +342,7 @@ def generateOrders():  # pylint: disable=invalid-name
             action()
             generate_order_timer.stop()
         except Exception as e:
-            error("Exception %s while trying to %s" % (e, action.__name__), exc_info=True)
+            error(f"Exception {e} while trying to {action.__name__}", exc_info=True)
 
     aistate.last_turn_played = fo.currentTurn()
     generate_order_timer.stop_print_and_clear()

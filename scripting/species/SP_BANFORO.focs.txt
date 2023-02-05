@@ -31,7 +31,6 @@ Species
         "PLC_CONFORMANCE"
         "PLC_ENVIRONMENTALISM"
         "PLC_ALLIED_REPAIR"
-        "PLC_INTERSTELLAR_INFRA"
         ]
         
     dislikes = [
@@ -44,7 +43,6 @@ Species
         "RESONANT_MOON_SPECIAL"
         "PLC_AUGMENTATION"
         "PLC_DIVINE_AUTHORITY"
-        "PLC_METROPOLES"
         "PLC_MARTIAL_LAW"
         "PLC_TERROR_SUPPRESSION"
         ]

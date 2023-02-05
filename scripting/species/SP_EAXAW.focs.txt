@@ -58,7 +58,7 @@ Species
         [[AVERAGE_INFLUENCE]]
         [[AVERAGE_STOCKPILE]]
 
-        [[GOOD_POPULATION]]
+        [[AVERAGE_POPULATION]]
         [[GOOD_HAPPINESS]]
         [[AVERAGE_SUPPLY]]
         [[AVERAGE_DEFENSE_TROOPS]]

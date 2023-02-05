@@ -5,9 +5,9 @@ Tech(
     description="SHP_SOLAR_CONNECTION_DESC",
     short_description="SHP_SOLAR_CONNECTION_SHORT_DESC",
     category="SHIP_WEAPONS_CATEGORY",
-    researchcost=75 * TECH_COST_MULTIPLIER,
+    researchcost=120 * TECH_COST_MULTIPLIER,
     researchturns=4,
     tags=["PEDIA_SR_WEAPON_TECHS"],
-    prerequisites="SHP_ORGANIC_WAR_ADAPTION",
+    prerequisites=["SHP_ORGANIC_WAR_ADAPTION"],
     graphic="icons/ship_parts/solarcollector.png",
 )

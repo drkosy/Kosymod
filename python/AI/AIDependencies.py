@@ -247,6 +247,14 @@ industry_boost_specials_unmodified = {
 }
 # </editor-fold>
 
+luxury_specials = {
+    "FRACTAL_GEODES_SPECIAL",
+    "MIMETIC_ALLOY_SPECIAL",
+    "SHIMMER_SILK_SPECIAL",
+    "SPARK_FOSSILS_SPECIAL",
+    "SUCCULENT_BARNACLES_SPECIAL",
+}
+
 # <editor-fold desc="Other Population changing specials">
 # Please see the Note at top of this file regarding PlanetSize-Dependent-Lookup
 # Regardless of whether the sub-dictionary here has PlanetSize keys, the final
@@ -342,7 +350,6 @@ PRO_NEUTRONIUM_EXTRACTION = "PRO_NEUTRONIUM_EXTRACTION"
 NEST_DOMESTICATION_TECH = "SHP_DOMESTIC_MONSTER"
 
 LRN_ARTIF_MINDS_1 = "LRN_NASCENT_AI"
-LRN_ARTIF_MINDS_2 = "LRN_NASCENT_AI"
 LRN_ALGO_ELEGANCE = "LRN_ALGO_ELEGANCE"
 GRO_PLANET_ECOL = "GRO_PLANET_ECOL"
 GRO_SUBTER_HAB = "GRO_SUBTER_HAB"
@@ -454,11 +461,11 @@ WEAPON_UPGRADE_DICT = {
         "SR_WEAPON_4_1": {"SHP_WEAPON_4_%d" % i: 5 for i in [2, 3, 4]},
         "SR_WEAPON_PHASOR": {"SHP_WEAPON_PHASOR_%d" % i: 4 for i in [2, 3, 4]},
         "SR_ARC_DISRUPTOR": {"SHP_WEAPON_ARC_DISRUPTOR_%d" % i: i for i in [2, 3]},
-        SR_FLUX_LANCE: {},
+        "SR_FLUX_LANCE": {},
         "SR_SPINAL_ANTIMATTER": {},
         "SR_SINGULARITY_PROJECTOR": {},
         "SR_STELLAR_CONVERTER": {},
-        "SR_WEAPON_DR": {},
+        "SR_WEAPON_DR": {"SHP_WEAPON_DR_%d" % i: 6 for i in [2]},
     }.items()
 }
 
@@ -471,7 +478,7 @@ WEAPON_ROF_UPGRADE_DICT = {
     "SR_WEAPON_4_1": (),
     "SR_WEAPON_PHASOR": (),
     "SR_ARC_DISRUPTOR": (),
-    SR_FLUX_LANCE: {},
+    "SR_FLUX_LANCE": {},
     "SR_SPINAL_ANTIMATTER": (),
     "SR_SINGULARITY_PROJECTOR": (),
     "SR_STELLAR_CONVERTER": (),
@@ -886,7 +893,7 @@ class CombatTarget:
         "SR_WEAPON_PHASOR": SHIP | PLANET,
         "SR_WEAPON_DR": SHIP | PLANET,
         "SR_ARC_DISRUPTOR": ANY,
-        SR_FLUX_LANCE: SHIP | PLANET,
+        "SR_FLUX_LANCE": SHIP | PLANET,
         "SR_SPINAL_ANTIMATTER": SHIP | PLANET,
         "SR_SINGULARITY_PROJECTOR": SHIP | PLANET,
         "SR_STELLAR_CONVERTER": SHIP | PLANET,
@@ -906,9 +913,7 @@ class CombatTarget:
         "FT_HANGAR_KRILL": SHIP | FIGHTER,
     }
 
-
 # </editor-fold>
-
 
 # <editor-fold desc="Effect Scripting for Shipdesigns">
 # <editor-fold desc="Tokens">

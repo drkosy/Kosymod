@@ -53,7 +53,7 @@ Tech(
     researchturns=9999,
     researchable=False,
     tags=["PEDIA_DEFENSE_CATEGORY"],
-    prerequisites="SPY_STEALTH_3",
+    prerequisites=["SPY_STEALTH_3"],
     unlock=Item(type=UnlockBuilding, name="BLD_PLANET_CLOAK"),
 )
 
@@ -62,13 +62,13 @@ Tech(
     description="DEF_SYST_DEF_MINE_1_DESC",
     short_description="DEFENSE_SHORT_DESC",
     category="DEFENSE_CATEGORY",
-    researchcost=120 * TECH_COST_MULTIPLIER,
+    researchcost=192 * TECH_COST_MULTIPLIER,
     researchturns=4,
     tags=["PEDIA_DEFENSE_CATEGORY"],
-    prerequisites="DEF_DEFENSE_NET_1",
-    effectsgroups=[
-        EG_SYSTEM_MINES(2 * SYSTEM_MINES_DAMAGE_FACTOR, 75, "EMPIRE")
-    ],  # Priority deliberately not a macro and before all priority macros
+    prerequisites=["DEF_DEFENSE_NET_1"],
+    effectsgroups=EG_SYSTEM_MINES(
+        2 * SYSTEM_MINES_DAMAGE_FACTOR, 75, "EMPIRE"
+    ),  # Priority deliberately not a macro and before all priority macros
     graphic="icons/tech/system_defense_mines.png",
 )
 
@@ -77,11 +77,11 @@ Tech(
     description="DEF_SYST_DEF_MINE_2_DESC",
     short_description="DEFENSE_SHORT_DESC",
     category="DEFENSE_CATEGORY",
-    researchcost=240 * TECH_COST_MULTIPLIER,
+    researchcost=360 * TECH_COST_MULTIPLIER,
     researchturns=6,
     tags=["PEDIA_DEFENSE_CATEGORY"],
-    prerequisites="DEF_SYST_DEF_MINE_1",
-    effectsgroups=[EG_SYSTEM_MINES(6 * SYSTEM_MINES_DAMAGE_FACTOR, 65, "EMPIRE")],
+    prerequisites=["DEF_SYST_DEF_MINE_1"],
+    effectsgroups=EG_SYSTEM_MINES(6 * SYSTEM_MINES_DAMAGE_FACTOR, 65, "EMPIRE"),
     graphic="icons/tech/system_defense_mines.png",
 )
 
@@ -90,10 +90,10 @@ Tech(
     description="DEF_SYST_DEF_MINE_3_DESC",
     short_description="DEFENSE_SHORT_DESC",
     category="DEFENSE_CATEGORY",
-    researchcost=500 * TECH_COST_MULTIPLIER,
+    researchcost=600 * TECH_COST_MULTIPLIER,
     researchturns=8,
     tags=["PEDIA_DEFENSE_CATEGORY"],
-    prerequisites="DEF_SYST_DEF_MINE_2",
-    effectsgroups=[EG_SYSTEM_MINES(14 * SYSTEM_MINES_DAMAGE_FACTOR, 60, "EMPIRE")],
+    prerequisites=["DEF_SYST_DEF_MINE_2"],
+    effectsgroups=EG_SYSTEM_MINES(14 * SYSTEM_MINES_DAMAGE_FACTOR, 60, "EMPIRE"),
     graphic="icons/tech/system_defense_mines.png",
 )

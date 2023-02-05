@@ -6,10 +6,10 @@ Tech(
     description="SHP_WEAPON_4_4_DESC",
     short_description="SHIP_WEAPON_IMPROVE_SHORT_DESC",
     category="SHIP_WEAPONS_CATEGORY",
-    researchcost=1250 * TECH_COST_MULTIPLIER,
+    researchcost=1200 * TECH_COST_MULTIPLIER,
     researchturns=3,
     tags=["PEDIA_SR_WEAPON_TECHS"],
-    prerequisites="SHP_WEAPON_4_3",
+    prerequisites=["SHP_WEAPON_4_3"],
     effectsgroups=WEAPON_UPGRADE_CAPACITY_EFFECTS("SR_WEAPON_4_1", 5),
-    graphic="icons/ship_parts/death-ray-4.png",
+    graphic="icons/ship_parts/plasma-4.png",
 )

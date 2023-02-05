@@ -5,10 +5,10 @@ Tech(
     description="PRO_NDIM_ASSMB_DESC",
     short_description="BUILDING_UNLOCK_SHORT_DESC",
     category="PRODUCTION_CATEGORY",
-    researchcost=200 * TECH_COST_MULTIPLIER,
+    researchcost=320 * TECH_COST_MULTIPLIER,
     researchturns=5,
     tags=["PEDIA_PRODUCTION_CATEGORY"],
-    prerequisites="LRN_NDIM_SUBSPACE",
+    prerequisites=["LRN_NDIM_SUBSPACE"],
     unlock=Item(type=UnlockBuilding, name="BLD_HYPER_DAM"),
     graphic="icons/tech/n-dimensional_assembly.png",
 )

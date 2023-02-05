@@ -20,7 +20,7 @@ Species
     
     likes = [
         "FOCUS_GROWTH"
-        "FOCUS_DEFENSE"
+        "FOCUS_PROTECTION"
         "SHIMMER_SILK_SPECIAL"
         "SUCCULENT_BARNACLES_SPECIAL"
         "MIMETIC_ALLOY_SPECIAL"
@@ -31,7 +31,7 @@ Species
         "SUPERCONDUCTOR_SPECIAL"
         "POSITRONIUM_SPECIAL"
         "MINERALS_SPECIAL"
-        "ELIRIUM_SPECIAL"
+        "ELERIUM_SPECIAL"
         "CRYSTALS_SPECIAL"
         "FORTRESS_SPECIAL"
         "TIDAL_LOCK_SPECIAL"

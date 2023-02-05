@@ -4,7 +4,7 @@ Policy
     short_description = "PLC_INDUSTRIALISM_SHORT_DESC"
     category = "ECONOMIC_CATEGORY"
     adoptioncost = floor(2.0 * [[POPULATION_OWNED_BY_EMPIRE]]^0.5)
-    exclusions = [ "PLC_ENVIRONMENTALISM" "PLC_MODERATION" "PLC_TECHNOCRACY" "PLC_METROPOLES"]
+    exclusions = [ "PLC_ENVIRONMENTALISM" "PLC_MODERATION" "PLC_TECHNOCRACY" ]
     effectsgroups = [
         [[SPECIES_LIKES_OR_DISLIKES_POLICY_STABILITY_EFFECTS]]
 
@@ -14,16 +14,15 @@ Policy
                 OwnedBy empire = Source.Owner
                 Focus type = "FOCUS_INDUSTRY"
                 Population low = 0.001
-                Happiness low = (NamedReal name = "PLC_INDUSTRIALISM_MIN_STABILITY" value = 5)
+                Happiness low = (NamedReal name = "PLC_INDUSTRIALISM_MIN_STABILITY" value = 6)
             ]
             priority = [[TARGET_2ND_SCALING_PRIORITY]]
-            effects = [
-                SetTargetIndustry value = Value + Target.Population * (NamedReal name = "INDUSTRIALISM_BASE_PROD_BONUS" value = 0.05)
-                SetTargetIndustry value = Value + min(4, 0.05 * Target.Population * Statistic If condition = And [Source EmpireHasAdoptedPolicy empire = Source.Owner name = "PLC_CENTRALIZATION"])
-                SetTargetIndustry value = Value + 1.2 * Statistic If condition = And [Source EmpireHasAdoptedPolicy empire = Source.Owner name = "PLC_INTERSTELLAR_INFRA"]
-            ]
-
-        EffectsGroup
+            effects =
+                SetTargetIndustry value = Value
+                    + (NamedReal name = "INDUSTRIALISM_BASE_PROD_BONUS" value = 1.2)
+                    + (0.1 * Target.Population - 0.05 * [[PLANETS_OWNED_BY_EMPIRE]]) * Statistic If condition = And [Source EmpireHasAdoptedPolicy empire = Source.Owner name = "PLC_METROPOLES"]
+                    
+            EffectsGroup
             scope = And [
                 Planet
                 OwnedBy empire = Source.Owner
@@ -36,5 +35,6 @@ Policy
     ]
     graphic = "icons/policies/economic_industrialism.png"
 
+#include "/scripting/common/misc.macros"
 #include "/scripting/common/priorities.macros"
 #include "/scripting/policies/policies.macros"

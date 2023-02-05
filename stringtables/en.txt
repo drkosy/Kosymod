@@ -9460,7 +9460,7 @@ ANCIENT_RUINS_SPECIAL_DESCRIPTION
 '''Increases [[metertype METER_TARGET_RESEARCH]] on this planet by [[value ANCIENT_RUINS_TARGET_RESEARCH_PERPOP]] per [[metertype METER_POPULATION]] when Focus is set to Research.
 The effect requires a stability of [[value ANCIENT_RUINS_MIN_STABILITY]].
 
-This planet holds the ruins of an unknown, advanced ancient race. The first empire with the tech [[tech LRN_XENOARCH]] to possess this planet receives one free advanced tech or uncovers a powerful building or ship. There's also a good chance that well preserved bodies of an extinct species will be found.'''
+This planet holds the ruins of an unknown, advanced ancient race. The first empire with the tech [[tech LRN_XENOARCH]] to possess this planet with an outpost receives the technology of [[SR_WEAPON_DR]] and one free advanced tech or uncovers a powerful building or ship. There's also a good chance that well preserved bodies of an extinct species will be found.'''
 
 EXTINCT_BANFORO_SPECIAL
 Banforo Remains
@@ -9744,19 +9744,26 @@ PROBIOTIC_SPECIAL
 Probiotic Soup
 
 PROBIOTIC_SPECIAL_DESC
-The great diversity of unique single-celled organisms have applications to the health and maintenance of all types of organic life.
+'''The great diversity of unique single-celled organisms have applications to the health and maintenance of all types of organic life.
+If the planet is set to [[FOCUS_GROWTH]] all [[METER_SUPPLY]] connected planets with organic metabolism species on them gets a boost to population.
+If the planet is set to [[FOCUS_RESEARCH]] it gets a bonus of [[value GROWTH_SPECIAL_TARGET_RESEARCH_PERPOP]] per population.'''
 
 FRUIT_SPECIAL
 Caretaker's Fruit
 
 FRUIT_SPECIAL_DESC
-What appears to be a forest is actually part of a continent-spanning symbiotic organism. The fruit of these trees contains marvelously complex organic chemicals beneficial to all sorts of organic life.
+'''What appears to be a forest is actually part of a continent-spanning symbiotic organism. The fruit of these trees contains marvelously complex organic chemicals beneficial to all sorts of organic life.
+If the planet is set to [[FOCUS_GROWTH]] all [[METER_SUPPLY]] connected planets with organic metabolism species on them gets a boost to population.
+If the planet is set to [[FOCUS_RESEARCH]] it gets a bonus of [[value GROWTH_SPECIAL_TARGET_RESEARCH_PERPOP]] per population.'''
 
 SPICE_SPECIAL
 Ki Spice
 
 SPICE_SPECIAL_DESC
-A unique substance produced by this planet's ecology, Ki Spice has the capacity to lengthen the lives, clarify the thoughts, or sharpen the senses of organic beings.
+'''A unique substance produced by this planet's ecology, Ki Spice has the capacity to lengthen the lives, clarify the thoughts, or sharpen the senses of organic beings.
+
+If the planet is set to [[FOCUS_GROWTH]] all [[METER_SUPPLY]] connected planets with organic metabolism species on them gets a boost to population.
+If the planet is set to [[FOCUS_RESEARCH]] it gets a bonus of [[value GROWTH_SPECIAL_TARGET_RESEARCH_PERPOP]] per population.'''
 
 MONOPOLE_SPECIAL
 Monopole Magnets
@@ -11936,35 +11943,33 @@ PLC_CENTRALIZATION
 Centralization
 
 PLC_CENTRALIZATION_DESC
-'''Boosts production or research output at the capital, dependant of the choosen policies:
-• Increases [[metertype METER_TARGET_RESEARCH]] by [[value PLC_CENTRALIZATION_TARGET_RESEARCH_PERPOP]] per [[metertype METER_POPULATION]] if the policy "Thinktanks" is active.
-• Increases [[metertype METER_TARGET_INDUSTRY]] by [[value PLC_CENTRALIZATION_TARGET_INDUSTRY_PERPOP]] per [[metertype METER_POPULATION]] it the policy "Industrialism" is active.
+'''Boosts production output at the capital, regardless of the focus:
+• Increases [[metertype METER_TARGET_RESEARCH]] by [[value PLC_CENTRALIZATION_TARGET_RESEARCH_PERPOP]] per [[metertype METER_POPULATION]].
+• Increases [[metertype METER_TARGET_INDUSTRY]] by [[value PLC_CENTRALIZATION_TARGET_INDUSTRY_PERPOP]] per population.
+• Increases [[metertype METER_TARGET_CONSTRUCTION]] by [[value PLC_CENTRALIZATION_TARGET_CONSTRUCTION_FLAT]].
+The effect requires a stability of [[value PLC_CENTRALIZATION_MIN_STABILITY]].
 
-However, it also reduces [[metertype METER_SUPPLY]] range by ([[value PLC_CENTRALIZATION_MAX_SUPPLY_FLAT]]) and [[metertype METER_STOCKPILE]] ([[value PLC_CENTRALIZATION_MAX_STOCKPILE_FLAT]]), and increases the [[metertype METER_INFLUENCE]] cost of the empire's colonies by [[value TALL_ADMIN_COSTS_PER_PLANET]] times the squareroot of owend planets.
+However, it also reduces [[metertype METER_SUPPLY]] range ([[value PLC_CENTRALIZATION_MAX_SUPPLY_FLAT]]) and [[metertype METER_STOCKPILE]] ([[value PLC_CENTRALIZATION_MAX_STOCKPILE_FLAT]]), and increases the [[metertype METER_INFLUENCE]] cost of the empire's colonies:
+• [[metertype METER_SUPPLY]] connected colonies get a penalization of [[value PLC_CENTRALIZATION_TARGET_INFLUENCE_PERJUMP]] per jump distance to the capital, capped at [[value PLC_CENTRALIZATION_TARGET_INFLUENCE_MAX]].
+• Colonies not [[metertype METER_SUPPLY]] connected to the capital gets the maximum penalization ([[value PLC_CENTRALIZATION_TARGET_INFLUENCE_MAX]]).
+Additionally, the cost of colonization ship parts is increased by 33%.
 
-Additionally, the cost of colonization ship parts is increased by 50%.
-
-The behavior of some policies changes: [[PLC_INDUSTRIALISM]], [[PLC_THINKTANKS]] and [[PLC_METROPOLES]]. See the respective pedia entries for more information.'''
+Logistics of the whole empire are focused into boosting the capital's production, by diverting there most of the social and material resources. This causes some resentment in the colonies, which increases [[metertype METER_INFLUENCE]] costs.'''
 
 PLC_CENTRALIZATION_SHORT_DESC
-Boosts colony outputs dependent on population and grants policy slots.
+Boosts Capital
 
 PLC_METROPOLES
 Metropoles
 
 PLC_METROPOLES_DESC
-'''Changes the Output of Industy, Research or Influence depending on the recent population of a colony dependand on the choise of either [[PLC_CENTRALIZATION]] or [[PLC_INTERSTELLAR_INFRA]].
+'''Grants two economic policy slots.
 
-[[PLC_CENTRALIZATION]]: Changes Industry or Research by 0.2 * Population reduced by 3
+If a colony reaches 12 population there are some benefits:
+• [[METER_SUPPLY]] is increased by [[value PLC_METROPOLES_MAX_SUPPLY_FLAT]]
+• [[METER_HAPPINESS]] is increased by [[value PLC_METROPOLES_HAPPY_BONUS]]
 
-[[PLC_INTERSTELLAR_INFRA]]: Changes Industy or Research by 0.1 * Population reduced by 1
-
-Indipendent of the choise between [[PLC_CENTRALIZATION]] or [[PLC_INTERSTELLAR_INFRA]] there are changes to the [[METER_HAPPINESS]]:
-- Less than 8 Pop: [[value PLC_METROPOLES_HAPPY_MALUS_SM]]
-- Less than 12 Pop: [[value PLC_METROPOLES_HAPPY_MALUS_MED]]
-- More than 12 Pop: [[value PLC_METROPOLES_HAPPY_MALUS_BIG]]
-
-If a colony reaches a population of 12 there are changes too. The [[METER_SUPPLY]] is increased by [[value PLC_METROPOLES_MAX_SUPPLY_FLAT]]. The influence output of colonies with influence focus are increased by 0.075 per Population.'''
+It allows to build [[BLD_REGIONAL_ADMIN]].'''
 
 PLC_METROPOLES_SHORT_DESC
 Boosts Output of large Pop-Planets
@@ -11973,7 +11978,7 @@ PLC_PATRIOTISM
 Patriotism
 
 PLC_PATRIOTISM_DESC
-'''The [[METER_HAPPINESS]] is increased by [[value PLC_COLONIZATION_HAPPY_BONUS]] for every colony of the empire capital species.''' 
+'''The [[METER_HAPPINESS]] is increased by [[value PLC_PATRIOTISM_HAPPY_BONUS]] for every colony of the empire capital species.''' 
 
 PLC_PATRIOTISM_SHORT_DESC
 Every colony of capital species increases stability
@@ -12086,7 +12091,9 @@ PLC_TERRAFORMING_DESC
 '''• Decreases the minimum time and cost to produce Terraforming projects on planets.
 • Boosts [[metertype METER_TARGET_HAPPINESS]] on terraformed planets by [[value PLC_TERRAFORMING_TARGET_HAPPINESS_ORIGINAL_FLAT]] by [[value PLC_TERRAFORMING_TARGET_HAPPINESS]].
 • Boosts [[metertype METER_TARGET_INFLUENCE]] on planets set to influence focus by [[value PLC_TERRAFORMING_INFLUENCE]], if they have been terraformed.
-• Boosts [[metertype METER_TARGET_RESEARCH]] on planets set to research focus by [[value TERRAFORMING_TARGET_RESEARCH_PERPOP]] per [[metertype METER_POPULATION]] if they have been terraformed.'''
+• Boosts [[metertype METER_TARGET_RESEARCH]] on planets set to research focus by [[value TERRAFORMING_TARGET_RESEARCH_PERPOP]] per [[metertype METER_POPULATION]] if they have been terraformed.
+
+The planets have to be terraformed at least one step to receive the boosts.'''
 
 PLC_TERRAFORMING_SHORT_DESC
 Speeds up terraforming and grants boosts on influence or research outputs.
@@ -12095,17 +12102,25 @@ PLC_INDUSTRIALISM
 Industrialism
 
 PLC_INDUSTRIALISM_DESC
-'''Industry-focused planets get a boost to [[metertype METER_TARGET_INDUSTRY]] by [[value INDUSTRIALISM_BASE_PROD_BONUS]] per population and a bonus of [[value PLC_INDUSTRIALISM_TARGET_HAPPINESS_FLAT]] to [[metertype METER_HAPPINESS]].
+'''Industry-focused planets get a boost to [[metertype METER_TARGET_INDUSTRY]] by [[value INDUSTRIALISM_BASE_PROD_BONUS]] and a bonus of [[value PLC_INDUSTRIALISM_TARGET_HAPPINESS_FLAT]] to [[metertype METER_HAPPINESS]].
 The effect requires a stability of [[value PLC_INDUSTRIALISM_MIN_STABILITY]].
-
-The effect is boosted if Centralisation or Interstellar Infrastructure is active:
-• Centralisation: Additional boost by 0.05 production per population to a maximum of 4
-• Interstellar Infrastructure: Additional boost of production by 1.2 indipendent of population
+If the Policy [[PLC_METROPOLES]] is active, there is an additionl boost to production, of 0.1 per Population minus 0.05 * number of planets owned.
 
 Also makes some production-boosting generation techs cheaper to research.'''
 
 PLC_INDUSTRIALISM_SHORT_DESC
 Improves industry output
+
+PLC_AUTOMATION
+Automation
+
+PLC_AUTOMATION_DESC
+'''With advanced automation technology it is possible to produce or research with robots.
+
+This policy increase the output of reseach or production focused planetes.'''
+
+PLC_AUTOMATION_SHORT_DESC
+Boosts stability on all planets and research or production depending on the focus.
 
 PLC_THINKTANKS
 Thinktanks
@@ -12387,14 +12402,16 @@ PLC_INTERSTELLAR_INFRA
 Interstellar Infrastructure
 
 PLC_INTERSTELLAR_INFRA_DESC
-'''Grants 2 additional economic policy slots and increases the [[METER_SUPPLY]] of the capital by 1.
+'''Grants 2 additional economic policy slots.
 
 Increases [[metertype METER_TARGET_CONSTRUCTION]] by 5 on populated planets that are resource supply connected to planets in other systems owned by the empire that adopted this policy.
 
-Changes the behavior of some policies: [[PLC_INDUSTRIALISM]], [[PLC_THINKTANKS]] and [[PLC_METROPOLES]]'''
+Increases stability by 0.05 per colony the empire ownes to the maximum of 2 starting at 20 colonies.
+
+It allows to build [[BLD_REGIONAL_ADMIN]]'''
 
 PLC_INTERSTELLAR_INFRA_SHORT_DESC
-Boosts colony outputs independent on population and grants policy slots. 
+Boosts meters dependent on colonies owned and grants policy slots. 
 
 PLC_CAPITAL_MARKETS
 Capital Markets
@@ -12479,8 +12496,10 @@ PLC_BUREAUCRACY
 Bureaucracy
 
 PLC_BUREAUCRACY_DESC
-'''• Increases an empire's populated planet stability by [[value PLC_BUREAUCRACY_STABILITY_FLAT]], as long as the empire has enough [[buildingtype BLD_REGIONAL_ADMIN]]. An additional [[buildingtype BLD_REGIONAL_ADMIN]] is required per [[value BUREACRACY_ADMINS_NEEDED_TURN_SCALING]] turns this policy has been adopted.
-• Changing planet focus reduces that planet's [[metertype METER_INFLUENCE]] by [[value BUREAUCRACY_FOCUS_CHANGE_PENALTY]].'''
+'''• Increases an empire's populated planet stability by [[value PLC_BUREAUCRACY_STABILITY_FLAT]].
+• Changing planet focus reduces that planet's [[metertype METER_INFLUENCE]] by [[value BUREAUCRACY_FOCUS_CHANGE_PENALTY]].
+• Costs some influence based on the overall population. Costs are reduced by having more adminstrative buildings ([[buildingtype BLD_IMPERIAL_PALACE]], [[buildingtype BLD_REGIONAL_ADMIN]]) and by having [[PLC_CENTRALIZATION]] adopted.
+'''
 
 PLC_BUREAUCRACY_SHORT_DESC
 Boosts stability
@@ -12715,6 +12734,9 @@ Nascent Artificial Intelligence
 
 LRN_NASCENT_AI_DESC
 '''Increases [[metertype METER_TARGET_RESEARCH]] on all planets by [[value LRN_NASCENT_AI_TARGET_RESEARCH_FLAT]].
+If the policy [[PLC_INTERSTELLAR_INFRA]] is active, [[metertype METER_TARGET_RESEARCH]] is further boostet by 0.5 plus 0.02 per owned colony
+If the policy [[PLC_METROPOLES]] is active, [[metertype METER_TARGET_RESEARCH]] is further boostet by 0.1 times population minus 0.05 per owned colony
+
 The effect requires a stability of [[value LRN_NASCENT_AI_MIN_STABILITY]].
 
 While traditional computers have nearly unfathomable intelligence and computational abilities, they lack the essential qualities of self-awareness, consciousness or sentience. While these traits remain elusive, reasonable facsimiles may be produced. These investigations open new avenues of research into cognitive sciences and novel metaparadigms.
@@ -13033,6 +13055,9 @@ Adaptive Automation
 
 PRO_ADAPTIVE_AUTOMATION_DESC
 '''Increases [[metertype METER_TARGET_INDUSTRY]] on all planets by [[value PRO_ADAPTIVE_AUTO_TARGET_INDUSTRY_FLAT]].
+If the policy [[PLC_INTERSTELLAR_INFRA]] is active, [[metertype METER_TARGET_INDUSTRY]] is further boostet by 0.5 plus 0.02 per owned colony
+If the policy [[PLC_METROPOLES]] is active, [[metertype METER_TARGET_INDUSTRY]] is further boostet by 0.1 times population minus 0.05 per owned colony
+
 The effect requires a stability of [[value PRO_ADAPTIVE_AUTO_MIN_STABILITY]].
 
 By producing automated factories that operate without direct supervision, it is possible to increase industrial output in an entirely automated facility. These factories can be built and maintained on any planet, regardless of focus, providing a bonus to industry on all worlds.
@@ -13044,6 +13069,8 @@ Sentient Automation
 
 PRO_SENTIENT_AUTOMATION_DESC
 '''Increases [[metertype METER_TARGET_INDUSTRY]] on all planets with the Industry focus by [[value PRO_SENTIENT_AUTO_TARGET_INDUSTRY_FLAT]].
+If the policy [[PLC_INTERSTELLAR_INFRA]] is active, [[metertype METER_TARGET_INDUSTRY]] is further boostet by 2 plus 0.05 per owned colony
+If the policy [[PLC_METROPOLES]] is active, [[metertype METER_TARGET_INDUSTRY]] is further boostet by 0.25 times population minus 0.15 per owned colony
 
 Grants 1 extra economic policy slot.
 
@@ -13192,6 +13219,12 @@ SHP_MIL_ROBO_CONT_DESC
 '''Unless faster ship hulls have already been researched, this tech decreases the time to build a colony building far away from the corresponding species in the empire.
 
 Robotic control can be used effectively for tasks such as mining and industry; the natural extension of this concept is to develop military robotic equipment capable of independently operating a starship. This would allow greater versatility in design, as the necessity for bulky life-support systems would be removed. Hulls produced with such technology could also perform dangerous repairs without thought for the safety and biological limitations of living engineers.'''
+
+SHP_SMALL_ROBO
+Small Robotic Hull
+
+SHP_SMALL_ROBO_DESC
+With advances in nanotechnology ship parts can be miniaturized, allowing for a smaller yet spacious robotic hull.
 
 SHP_SPACE_FLUX_BASICS
 Spatial Flux Manipulation
@@ -13362,13 +13395,13 @@ Deception
 SPY_ROOT_DECEPTION_DESC
 The art of deception is not natural to every species, but the ability to hide the truth can be most useful.
 
-SPY_DECPTION_EMPTY_SPACE_PENALTY
+SPY_DECEPTION_EMPTY_SPACE_PENALTY
 Conspicuous in Empty Space
 
-SPY_DECPTION_DIM_STAR_PENALTY
+SPY_DECEPTION_DIM_STAR_PENALTY
 Conspicuous Near Dim Star
 
-SPY_DECPTION_SUBSTELLAR_INTERFERENCE
+SPY_DECEPTION_SUBSTELLAR_INTERFERENCE
 High Radiation Background
 
 
@@ -13397,11 +13430,32 @@ Unlocks Ship Hull
 BUILDING_UNLOCK_SHORT_DESC
 Unlocks Building
 
+POLICY_UNLOCK_SHORT_DESC
+Unlocks Policy
+
+POLICY_SLOT_UNLOCK_SHORT_DESC
+Unlocks Slot
+
+POLICY_AND_SLOT_UNLOCK_SHORT_DESC
+Unlocks Slot & Policy
+
+POLICY_AND_BUILDING_UNLOCK_SHORT_DESC
+Unlocks Policy & Building
+
+VARIOUS_UNLOCK_SHORT_DESC
+Unlocks Various Things
+
 RESEARCH_SHORT_DESC
 Improves Research
 
 INDUSTRY_SHORT_DESC
 Improves Industry
+
+RESEARCH_AND_SLOT_SHORT_DESC
+Improves Research, Unlocks Slot
+
+INDUSTRY_AND_SLOT_SHORT_DESC
+Improves Industry, Unlocks Slot
 
 SUPPLY_SHORT_DESC
 Improves Supply
@@ -13506,6 +13560,12 @@ GRO_SUBTER_HAB
 Subterranean Habitation
 
 GRO_SUBTER_HAB_DESC
+Increases the [[metertype METER_TARGET_POPULATION]] on all planets by planet size: ([[SZ_TINY]] +1) ([[SZ_SMALL]] +2) ([[SZ_MEDIUM]] +3) ([[SZ_LARGE]] +4) ([[SZ_HUGE]] +5).
+
+GRO_HYPER_HAB
+Habitation in the Void
+
+GRO_HYPER_HAB_DESC
 Increases the [[metertype METER_TARGET_POPULATION]] on all planets by planet size: ([[SZ_TINY]] +1) ([[SZ_SMALL]] +2) ([[SZ_MEDIUM]] +3) ([[SZ_LARGE]] +4) ([[SZ_HUGE]] +5).
 
 GRO_GENOME_BANK
@@ -13810,6 +13870,12 @@ Advanced Damage Control
 
 SHP_ADV_DAM_CONT_DESC
 Repairs damaged ships by 10% of [[metertype METER_STRUCTURE]] per turn if they are stationary and have not been in combat that turn. This is cumulative with [[tech SHP_BASIC_DAM_CONT]] and [[tech SHP_FLEET_REPAIR]] and works even out of [[metertype METER_SUPPLY]].
+
+SHP_HYPER_DAM_CONT
+Self Sustaining Material
+
+SHP_HYPER_DAM_CONT_DESC
+Repairs damaged ships by 10% of [[metertype METER_STRUCTURE]] per turn if they are stationary and have not been in combat that turn. This is cumulative with [[tech SHP_BASIC_DAM_CONT]], [[tech SHP_FLEET_REPAIR]] and [[SHP_ADV_DAM_CONT]]. It works even out of [[metertype METER_SUPPLY]].
 
 SHP_ROOT_AGGRESSION
 Aggression
@@ -14868,7 +14934,9 @@ BLD_BIOSPHERE
 Biosphere
 
 BLD_BIOSPHERE_DESC
-'''Increase the [[METER_POPULATION_VALUE_LABEL]] of a planet indipendent of [[ENVIRONMENT_TITLE]] or size by 4.
+'''Increase the [[METER_POPULATION_VALUE_LABEL]] of a planet indipendent of [[ENVIRONMENT_TITLE]] or size by [[value BLD_BIOSPHERE_POPULATON_FLAT]]. If the technology of [[CON_NDIM_STRC]] is present, the size is increased by additional [[value BLD_BIOSPHERE_TECH_BONUS1]]. It gets another boost of [[value BLD_BIOSPHERE_TECH_BONUS2]] population if [[GRO_GAIA_TRANS]] is acieved. Holing a maximum of 5 population if both technologies are present.
+With the policy [[PLC_POPULATION]] active, [[METER_HAPPINESS]] is increased by 2.
+
 This is a huge structure with an artificial ecosystem inside. Millions of colonists find habitation there.'''
 
 BLD_TERRAFORM_TERRAN
@@ -16098,6 +16166,16 @@ Robotic Hull
 
 SH_ROBOTIC_DESC
 '''This hull is completely automated and functions under the principals of [[tech SHP_MIL_ROBO_CONT]]. It has four external slots and one internal slot, and repairs [[value SHP_ROBOTIC_REPAIR]] points of [[metertype METER_STRUCTURE]] each turn as long as the ship has not been in combat.
+
+[[metertype METER_STEALTH]] is medium, [[metertype METER_DETECTION]] is medium and [[metertype METER_SPEED]] is average.
+
+[[BLD_SHIPYARD_BASE_ORBITAL_DRYDOCK_REQUIRED]]'''
+
+SH_SMALL_ROBOTIC
+Small Robotic Hull
+
+SH_SMALL_ROBOTIC_DESC
+'''This automated hull while small is surprisingly spacious making it well suited to many auxillary roles. It has three internal slot, and repairs [[value SHP_ROBOTIC_REPAIR]] points of [[metertype METER_STRUCTURE]] each turn as long as the ship has not been in combat.
 
 [[metertype METER_STEALTH]] is medium, [[metertype METER_DETECTION]] is medium and [[metertype METER_SPEED]] is average.
 

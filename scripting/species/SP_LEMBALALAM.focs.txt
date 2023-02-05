@@ -38,7 +38,6 @@ Species
         "PLC_MARTIAL_LAW"
         "PLC_COLONIZATION"
         "PLC_POPULATION"
-        "PLC_METROPOLES"
         "PLC_PATRIOTISM"
         "SP_NIGHTSIDERS"
         ]

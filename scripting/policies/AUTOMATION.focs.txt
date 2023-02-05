@@ -1,0 +1,45 @@
+Policy
+    name = "PLC_AUTOMATION"
+    description = "PLC_AUTOMATION_DESC"
+    short_description = "PLC_AUTOMATION_SHORT_DESC"
+    category = "ECONOMIC_CATEGORY"
+    adoptioncost = floor(2.0 * [[POPULATION_OWNED_BY_EMPIRE]]^0.5)
+    exclusions = [ "PLC_ENVIRONMENTALISM" "PLC_INDUSTRIALISM" "PLC_THINKTANKS" ]
+    effectsgroups = [
+        [[SPECIES_LIKES_OR_DISLIKES_POLICY_STABILITY_EFFECTS]]
+    
+        EffectsGroup
+            scope = And [
+                ProductionCenter
+                OwnedBy empire = Source.Owner
+                Focus type = "FOCUS_RESEARCH"
+                Happiness low = (NamedReal name = "PLC_AUTOMATION_MIN_HAPPY" value = 10)
+            ]
+            priority = [[TARGET_AFTER_2ND_SCALING_PRIORITY]]
+            effects = [
+                SetTargetResearch value = Value + min(Target.Construction, Target.Population)
+                        * (NamedReal name = "PLC_AUTOMATION_RESEARCH_BOMUS" value = 0.2)
+//                      + 0.2 * Target.Population * Statistic If condition = And [Source EmpireHasAdoptedPolicy empire = Source.Owner name = "PLC_METROPOLES"]
+                SetTargetHappiness value = Value + (NamedReal name = "PLC_AUTOMATION_HAPPINESS_BONUS" value = 2)
+                ]
+                        
+        EffectsGroup
+            scope = And [
+                ProductionCenter
+                OwnedBy empire = Source.Owner
+                Focus type = "FOCUS_INDUSTRY"
+                Happiness low = (NamedReal name = "PLC_AUTOMATION_MIN_HAPPY" value = 14)
+            ]
+            priority = [[TARGET_AFTER_2ND_SCALING_PRIORITY]]
+            effects = [
+                SetTargetIndustry value = Value + min(Target.Construction, Target.Population)
+                    * (NamedReal name = "PLC_AUTOMATION_PRODUCTION_BOMUS" value = 0.2)
+//                  + 0.2 * Target.Population * Statistic If condition = And [Source EmpireHasAdoptedPolicy empire = Source.Owner name = "PLC_METROPOLES"]
+                SetTargetHappiness value = Value + (NamedReal name = "PLC_AUTOMATION_HAPPINESS_BONUS" value = 2)
+                ]
+    ]
+    graphic = "icons/policies/economic_automation.png"
+
+#include "/scripting/common/base_prod.macros"
+#include "/scripting/common/priorities.macros"
+#include "/scripting/policies/policies.macros"

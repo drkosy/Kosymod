@@ -3,28 +3,20 @@ Policy
     description = "PLC_METROPOLES_DESC"
     short_description = "PLC_METROPOLES_SHORT_DESC"
     category = "ECONOMIC_CATEGORY"
-    adoptioncost = floor(2.0 * [[POPULATION_OWNED_BY_EMPIRE]]^0.5)
-    exclusions = ["PLC_ENVIRONMENTALISM" "PLC_NO_GROWTH" "PLC_INDUSTRIALISM" "PLC_THINKTANKS"]
+    adoptioncost = floor(60 + 3.0 * [[POPULATION_OWNED_BY_EMPIRE]]^0.5)
+    exclusions = [ "PLC_COLONIZATION" "PLC_INTERSTELLAR_INFRA" "PLC_FEUDALISM" ]
+    unlock = [
+        Item type = Building name = "BLD_REGIONAL_ADMIN"
+    ]
     effectsgroups = [
         [[SPECIES_LIKES_OR_DISLIKES_POLICY_STABILITY_EFFECTS]]
         
-        EffectsGroup
-            scope = And [
-                Species
-                OwnedBy empire = Source.Owner
-                Population high = 5
-            ]
-            priority = [[TARGET_POPULATION_AFTER_SCALING_PRIORITY]]
-            effects = SetTargetHappiness value = Value + (NamedReal name = "PLC_METROPOLES_HAPPY_MALUS_SM" value = -3)
-        
-        EffectsGroup
-            scope = And [
-                Species
-                OwnedBy empire = Source.Owner
-                Population high = 10
-            ]
-            priority = [[TARGET_POPULATION_AFTER_SCALING_PRIORITY]]
-            effects = SetTargetHappiness value = Value + (NamedReal name = "PLC_METROPOLES_HAPPY_MALUS_MED" value = -2)
+    EffectsGroup
+            scope = Source
+            priority = [[TARGET_AFTER_SCALING_PRIORITY]]
+            effects = [
+                SetEmpireMeter empire = Source.Owner meter = "ECONOMIC_CATEGORY_NUM_POLICY_SLOTS" value = Value + 2
+                ]
             
         EffectsGroup
             scope = And [
@@ -34,45 +26,13 @@ Policy
             ]
             priority = [[TARGET_POPULATION_AFTER_SCALING_PRIORITY]]
             effects = [
-                SetTargetHappiness value = Value + (NamedReal name = "PLC_METROPOLES_HAPPY_MALUS_BIG" value = 2)
+                SetTargetHappiness value = Value + (NamedReal name = "PLC_METROPOLES_HAPPY_BONUS" value = 2)
                 SetMaxSupply value = Value + (NamedReal name = "PLC_METROPOLES_MAX_SUPPLY_FLAT" value = 1)
             ]
-            
-        EffectsGroup
-            scope = And [
-                Species
-                OwnedBy empire = Source.Owner
-                Focus type = "FOCUS_INFLUENCE"
-                Population low = 12
-            ]
-            priority = [[TARGET_POPULATION_AFTER_SCALING_PRIORITY]]
-            effects = [
-                SetTargetInfluence value = Value + 0.075 * Target.Population
-                ]
-        
-        EffectsGroup
-            scope = And [
-                Planet
-                OwnedBy empire = Source.Owner
-                Focus type = "FOCUS_INDUSTRY"
-                Happiness low = (NamedReal name = "PLC_METRO_PP_MIN_STABILITY" value = 8)
-            ]
-            priority = [[TARGET_AFTER_SCALING_PRIORITY]]
-            effects = SetTargetIndustry value = Value + (NamedReal name = "PLC_METROPOLES_INDUSTRY_MOD" value = 0.1) * Target.Population - 3 + 2 * Statistic If condition = And [Source EmpireHasAdoptedPolicy empire = Source.Owner name = "PLC_INTERSTELLAR_INFRA"] + 0.2 * Target.Population * Statistic If condition = And [Source EmpireHasAdoptedPolicy empire = Source.Owner name = "PLC_CENTRALISATION"]
-            
-        EffectsGroup
-            scope = And [
-                Planet
-                OwnedBy empire = Source.Owner
-                Focus type = "FOCUS_RESEARCH"
-                Happiness low = (NamedReal name = "PLC_METRO_RP_MIN_STABILITY" value = 6)
-            ]
-            priority = [[TARGET_AFTER_SCALING_PRIORITY]]
-            effects = SetTargetResearch value = Value + (NamedReal name = "PLC_METROPOLES_RESEARCH_MOD" value = 0.1) * Target.Population - 3 + 2 * Statistic If condition = And [Source EmpireHasAdoptedPolicy empire = Source.Owner name = "PLC_INTERSTELLAR_INFRA"] + 0.1 * Target.Population * Statistic If condition = And [Source EmpireHasAdoptedPolicy empire = Source.Owner name = "PLC_CENTRALISATION"]
+
     ]
-    
 graphic = "icons/policies/economic_metropoles.png"
 
-#include "/scripting/common/base_prod.macros"
 #include "/scripting/common/priorities.macros"
+#include "/scripting/common/base_prod.macros"
 #include "/scripting/policies/policies.macros"

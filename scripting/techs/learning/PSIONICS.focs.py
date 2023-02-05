@@ -5,9 +5,9 @@ Tech(
     description="LRN_PSIONICS_DESC",
     short_description="POLICY_UNLOCK_SHORT_DESC",
     category="LEARNING_CATEGORY",
-    researchcost=300 * TECH_COST_MULTIPLIER
+    researchcost=500 * TECH_COST_MULTIPLIER
     - (
-        150
+        250
         * TECH_COST_MULTIPLIER
         * StatisticIf(
             float,
@@ -19,7 +19,7 @@ Tech(
     ),
     researchturns=4,
     tags=["PEDIA_LEARNING_CATEGORY", "THEORY"],
-    prerequisites="LRN_TRANSLING_THT",
+    prerequisites=["LRN_TRANSLING_THT"],
     unlock=[
         Item(type=UnlockPolicy, name="PLC_INDOCTRINATION"),
         Item(type=UnlockPolicy, name="PLC_CONFORMANCE"),

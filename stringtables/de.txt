@@ -1833,14 +1833,14 @@ For recommended game balance use 15-30 systems per empire.
 Very high numbers of systems may cause FreeOrion to lag, especially later in the game.'''
 
 OPTIONS_DB_GAMESETUP_GALAXY_SHAPE
-'''The shape of the galaxy.
+'''Die Form der Galaxie.
 
-Different shapes will create different tactical and strategic challenges.'''
+Je nachdem wie die Galaxie aufgebaut ist, ergeben sich verschiedene taktische Möglichkeiten.'''
 
 OPTIONS_DB_GAMESETUP_GALAXY_AGE
-'''The age of the galaxy.
+'''Das Alter der Galaxie.
 
-Younger galaxies will have more bright stars, older galaxies will have more black holes and neutron stars.'''
+Jüngere Galaxien haben mehr helle Sterne, alte Galaxien mehr Neutronensterne und schwarze Löcher.'''
 
 OPTIONS_DB_GAMESETUP_PLANET_DENSITY
 '''The number of planets per system in the galaxy.
@@ -9057,12 +9057,6 @@ Rot
 STAR_NEUTRON
 Neutronen Stern
 
-NEUTRON
-Neutron
-
-BLACK
-Schwarz
-
 # Star types
 STAR_BLACK
 Schwarzes Loch
@@ -10991,10 +10985,21 @@ PLC_CENTRALIZATION
 Zentralstaat
 
 PLC_CENTRALIZATION_DESC
-Verändert die Wirkung verschiedener Richtlinien und reduziert die Versorung der Hauptwelt. Außerdem reduziert es die Imperiale Lagerhaltung.
+'''Boosts production output at the capital, regardless of the focus:
+• Increases [[metertype METER_TARGET_RESEARCH]] by [[value PLC_CENTRALIZATION_TARGET_RESEARCH_PERPOP]] per [[metertype METER_POPULATION]].
+• Increases [[metertype METER_TARGET_INDUSTRY]] by [[value PLC_CENTRALIZATION_TARGET_INDUSTRY_PERPOP]] per population.
+• Increases [[metertype METER_TARGET_CONSTRUCTION]] by [[value PLC_CENTRALIZATION_TARGET_CONSTRUCTION_FLAT]].
+The effect requires a stability of [[value PLC_CENTRALIZATION_MIN_STABILITY]].
+
+Allerdings wird die [[metertype METER_SUPPLY]] des Hauptplaneten um ([[value PLC_CENTRALIZATION_MAX_SUPPLY_FLAT]]) verringert und auch [[metertype METER_STOCKPILE]] erfährt eine Reduzierung um ([[value PLC_CENTRALIZATION_MAX_STOCKPILE_FLAT]]), außerdem wird der Bedarf an [[metertype METER_INFLUENCE]] für Kolonien erhöht:
+• Kolonien innerhalb der [[metertype METER_SUPPLY]] benötigen [[value PLC_CENTRALIZATION_TARGET_INFLUENCE_PERJUMP]] pro Sprung zur Hauptwelt mehr [[Influence]], mit einem Maximum von [[value PLC_CENTRALIZATION_TARGET_INFLUENCE_MAX]].
+• Kolonien, die nicht innerhalb der [[metertype METER_SUPPLY]] der Hauptwelt liegen, benötigen den maximalen Mehraufwand im Bereich [[Influence]] ([[value PLC_CENTRALIZATION_TARGET_INFLUENCE_MAX]]).
+Die Kosten für Kolonie- und Außenpostenschiffe erhöhen sich außerdem um 33%.
+
+Logistics of the whole empire are focused into boosting the capital's production, by diverting there most of the social and material resources. This causes some resentment in the colonies, which increases [[metertype METER_INFLUENCE]] costs.'''
 
 PLC_CENTRALIZATION_SHORT_DESC
-Beeinflusst andere Richtlinien
+Macht die Heimaltwelt produktiver.
 
 PLC_METROPOLES
 Metropolen
@@ -13529,6 +13534,12 @@ BLD_BIOSPHERE_DESC
 '''Erhöht die [[METER_POPULATION_VALUE_LABEL]] eines Planeten unabhängig von den [[ENVIRONMENT_TITLE]] um 2.
 Eine riesige Wohnstruktur, die eine künstliche Stadt in einem guten Klima zur Verfügung stellt. Neben Wohnungen sind auch Anlagen zur Versorgung der Bevölkerung vorhanden.'''
 
+BLD_TERRAFORM_REVERT
+Terraformung zu ursprünglichen Umweltbedingungen
+
+BLD_TERRAFORM
+Terraformung zu besseren Umweltbedingungen
+
 BLD_TERRAFORM_TERRAN
 Terraformung zu [[PT_TERRAN]]
 
@@ -13590,7 +13601,7 @@ BLD_REMOTE_TERRAFORM_DESC
 Der Planet wird um einen Schritt näher an die bevorzugten [[encyclopedia ENVIRONMENT_TITLE]] der dort lebenden Spezies umgewandelt. Dieser Vorgang kann auch auf einem [[encyclopedia OUTPOSTS_TITLE]] durchgeführt werden.
 
 BLD_TERRAFORM_BEST
-Terraformung zu guten [[encyclopedia ENVIRONMENT_TITLE]]
+Terraformung zu guten [[ENVIRONMENT_TITLE]]
 
 BLD_TERRAFORM_BEST_DESC
 Der Planet wird in einem Schitt zu guten [[encyclopedia ENVIRONMENT_TITLE]] der dort lebenden Spezies umgewandelt. Der Prozess ist etwas kostengünstiger und schneller als den Planeten schrittweise zu terraformen.

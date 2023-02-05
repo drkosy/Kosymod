@@ -1,4 +1,3 @@
-# This Python file uses the following encoding: utf-8
 import freeOrionAIInterface as fo
 import inspect
 import pprint
@@ -309,7 +308,7 @@ def assertion_fails(cond: bool, msg: str = "") -> bool:
     warning("Stack trace (most recent call last): %s", "".join(traceback.format_list(stack)))
     frame = inspect.currentframe().f_back
     local_vars = pprint.pformat(frame.f_locals)
-    warning("Locals inside the {}\n{}".format(frame.f_code.co_name, local_vars))
+    warning(f"Locals inside the {frame.f_code.co_name}\n{local_vars}")
     warning("===\n")
     return True
 
@@ -428,25 +427,26 @@ def get_named_real(name: str) -> float:
     return 1.0
 
 
-def get_game_rule_int(name: str) -> int:
+def get_game_rule_int(name: str, default: int) -> int:
     """
-    Returns a integer value for a game rule.
-    Exceptions are handled like in get_named_int.
+    Returns an integer value for a game rule.
+    If the current game does not include the rule, the default value is returned.
+    Note that unlike named values, which should always exists unless someone changes the scripting without adapting
+    the AI, game rules are set when a game is started. When loading old game with a newer version, the scripting
+    will use the default values of game rules not found in the save file.
     """
     rules = fo.getGameRules()
     if rules.ruleExistsWithType(name, fo.ruleType.int):
         return rules.getInt(name)
-    error(f"Requested integer rule {name} does not exist!")
-    return 1
+    return default
 
 
-def get_game_rule_real(name: str) -> int:
+def get_game_rule_real(name: str, default: int) -> float:
     """
-    Returns a integer value for a game rule.
-    Exceptions are handled like in get_named_real.
+    Returns a real value for a game rule.
+    If the current game does not include the rule, the default value is returned. See also get_game_rule_int.
     """
     rules = fo.getGameRules()
     if rules.ruleExistsWithType(name, fo.ruleType.double):
         return rules.getDouble(name)
-    error(f"Requested double rule {name} does not exist!")
-    return 1.0
+    return default

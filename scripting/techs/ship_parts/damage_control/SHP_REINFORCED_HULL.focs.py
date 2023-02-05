@@ -5,13 +5,15 @@ Tech(
     description="SHP_REINFORCED_HULL_DESC",
     short_description="STRUCTURE_SHORT_DESC",
     category="SHIP_PARTS_CATEGORY",
-    researchcost=36 * TECH_COST_MULTIPLIER,
+    researchcost=72 * TECH_COST_MULTIPLIER,
     researchturns=3,
     tags=["PEDIA_DAMAGE_CONTROL_PART_TECHS"],
-    prerequisites="CON_ARCH_MONOFILS",
-    effectsgroups=EffectsGroup(
-        scope=Ship & OwnedBy(empire=Source.Owner),
-        effects=SetMaxStructure(value=Value + NamedRealLookup(name="SHP_REINFORCED_HULL_BONUS")),
-    ),
+    prerequisites=["CON_ARCH_MONOFILS"],
+    effectsgroups=[
+        EffectsGroup(
+            scope=Ship & OwnedBy(empire=Source.Owner),
+            effects=SetMaxStructure(value=Value + NamedRealLookup(name="SHP_REINFORCED_HULL_BONUS")),
+        )
+    ],
     graphic="icons/tech/structural_integrity_fields.png",
 )

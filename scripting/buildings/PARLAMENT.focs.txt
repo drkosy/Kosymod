@@ -56,7 +56,7 @@ BuildingType
             effects = [
                 SetEmpireCapital
                 SetTargetInfluence value = Value
-                     + 5 * (Statistic If condition = And [Source EmpireHasAdoptedPolicy empire = Source.Owner name = "PLC_DEMOCRACY"]) 
+                     + (NamedReal name = "BLD_PARLAMENT_TARGET_INFLUENCE_FLAT" value = 5) * (Statistic If condition = And [Source EmpireHasAdoptedPolicy empire = Source.Owner name = "PLC_DEMOCRACY"]) 
             ]
 
         // one economic policy slot
@@ -80,7 +80,7 @@ BuildingType
             ]
             stackinggroup = "PARLAMENT_SUPPLY_EFFECT"
             effects = SetMaxSupply value = Value
-                        + 2 * (Statistic If condition = And [Source EmpireHasAdoptedPolicy empire = Source.Owner name = "PLC_DEMOCRACY"])
+                        + (NamedReal name = "BLD_PARLAMENT_MAX_SUPPLY_FLAT" value = 2) * (Statistic If condition = And [Source EmpireHasAdoptedPolicy empire = Source.Owner name = "PLC_DEMOCRACY"])
 
         // flat bonus to stability of capital
         EffectsGroup
@@ -100,7 +100,9 @@ BuildingType
             ]
             stackinggroup = "PARLAMENT_HAPPIENESS"
             accountinglabel = "PARLAMENT_SPECIES_HAPPINESS"
-            effects = SetTargetHappiness value = Value - 5 + 10 * (Statistic If condition = And [Source EmpireHasAdoptedPolicy empire = Source.Owner name = "PLC_DEMOCRACY"])
+            effects = SetTargetHappiness value = Value
+              - (NamedReal name = "BLD_PARLAMENT_TARGET_HAPPINESS_FLAT" value = 5)
+              + 10 * (Statistic If condition = And [Source EmpireHasAdoptedPolicy empire = Source.Owner name = "PLC_DEMOCRACY"])
     ]
     icon = "icons/building/shield.png"
 

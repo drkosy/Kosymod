@@ -6,10 +6,10 @@ Tech(
     description="SHP_WEAPON_2_2_DESC",
     short_description="SHIP_WEAPON_IMPROVE_SHORT_DESC",
     category="SHIP_WEAPONS_CATEGORY",
-    researchcost=20 * TECH_COST_MULTIPLIER,
+    researchcost=40 * TECH_COST_MULTIPLIER,
     researchturns=2,
     tags=["PEDIA_SR_WEAPON_TECHS"],
-    prerequisites="SHP_WEAPON_2_1",
+    prerequisites=["SHP_WEAPON_2_1"],
     effectsgroups=WEAPON_UPGRADE_CAPACITY_EFFECTS("SR_WEAPON_2_1", 2),
     graphic="icons/ship_parts/laser-2.png",
 )

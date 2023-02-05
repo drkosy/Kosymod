@@ -1,3 +1,5 @@
+PLANETS_OWNED_BY_EMPIRE = StatisticCount(float, condition = Planet() & OwnedBy(empire=Source.Owner) & TargetPopulation(low=0.1))
+
 MIN_RECOLONIZING_SIZE = 3
 
 MIN_RECOLONIZING_HAPPINESS = 5
@@ -6,7 +8,7 @@ IMPOSSIBLY_LARGE_TURN = 2**15
 
 
 def DESCRIPTION_EFFECTSGROUP_MACRO(desc: str):
-    EffectsGroup(description=desc, scope=Source, activation=None, effects=NoOp)
+    return EffectsGroup(description=desc, scope=Source, activation=None, effects=NoEffect)
 
 
 FIGHTER_DAMAGE_FACTOR = GameRule(type=float, name="RULE_FIGHTER_DAMAGE_FACTOR")

@@ -31,7 +31,6 @@ Species
         "PLC_METROPOLES"
         "PLC_EXPLORATION"
         "PLC_INDUSTRIALISM"
-        "PLC_INTERSTELLAR_INFRA"
         "PLC_COLONIZATION"
         ]
         

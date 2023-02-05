@@ -1,24 +1,46 @@
-# Kosymod
-I did some modification on the freeorion project to fit the game better to my likes. More information are availible at the offical [freeorion forum](https://www.freeorion.org/forum/viewtopic.php?f=2&t=12489)
+# Resource directory (default)
 
-### Policies:
-Thinktanks, Patriotism and Democracy are introduced as new policies.
+The contents of the resource directory define the assets available to
+FreeOrion, as well as logic for modifiable content.
+These assets determine the appearance and functionality of FreeOrion.
 
-Industrialism, Metropoles and Terraforming has been changed for a different behavior.
+While much of the content within this directory is required in any resource
+directory, most is either
+* required only from inclusion in other entries
+* strictly optional
 
-Centralisation is changed to stand for tall empires: Outpost/Colony Ships gets more expensive, the capitol looses 1 supply range, the IP cost per colony is increased, resource output of industrialism, thinktanks and metropoles is dependent on pop per planet
-Interstellar Infrastructure stands for wide empires: The capitol gets 1 supply range, resource output of industrialism, thinktanks is a fixed value per colony. Metropoles gives a larger bonus per pop than with centralisation but the maximum is smaller.
+Each sub-directory has an accompanying README file within it.
+This file should give a guideline for any entries or files required by
+FreeOrion if a new resource directory is created.
 
-Democracy is a new kind of government. To change to democracy you have to apply "Liberty" first. Than you are able to build the "Parlament" (only available at your homeworld). After it is finished apply the policy "Democracy". You now can remove the imperial palace. [This is intended to get rid of the stability-malus of scylor but works well with other species]
+An alternate resource directory can be specified with the
+--resource.path command line flag, or by changing the resource.path node in the
+user's config.xml.
+See http://www.freeorion.org/index.php/Config.xml for details on the config.xml
+file.
 
-### Ship Weapons:
-Introduced new weapons: Phasor, Point-Singularity-Projector, Stellar Converter. Death Ray is now the high end weapon for external slots and can only be found in ancient ruins.
+## Contents
 
-### Buildings:
-Biospheres and Paralment are new buildings.
+* customizations/  -  User customizations
+* data/  -  Contains data files used by FreeOrion, including graphics, fonts,
+and sound.
+* python/  -  All content processed by python scripts are located here.  This
+is logic for AI decisions, events that occur each turn, and creation of a new
+universe when starting a new game.
+* scripting/  -  This directory contains the definitions of content within
+FreeOrion.
+* shaders/  -  Shader effects applied to various graphics during specific game
+events.
+* stringtables/  -  Language translations.  The only required file is
+**en.txt**, which is also a fallback for any other translations.  Any
+corrections to translations, or updates for omitted languages are welcome.
+* stringtables/content_specific_parameters.txt  -  **This file and the contained entries are
+required by FreeOrion**, the entries should be modified to reflect related
+content changes.  See file for details.
+* stringtables/common_user_customizations.txt  -  File that controls the interface.
+See the contents for more information.
+* COPYING  -  License info related to any content in this directory.
+**Required file and content.**
+* credits.xml  -  Acknowledgments of those who have made FreeOrion possible. 
+**Required file and content.**
 
-### Rework of species:
-Several changes to the traits of species and a complete rework of the likes / dislikes.
-
-### Documentation:
-English Pedia contains correct documentation of all changes, the german version is work in progress

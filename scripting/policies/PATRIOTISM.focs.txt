@@ -15,10 +15,10 @@ Policy
                 OwnedBy empire = Source.Owner
             ]
             priority = [[TARGET_AFTER_SCALING_PRIORITY]]
-            effects = SetTargetHappiness value = Value + min(8,(NamedReal name = "PLC_COLONIZATION_HAPPY_BONUS" value = 0.1) * Statistic Count condition = And [     Planet
+            effects = SetTargetHappiness value = Value + min(10,(NamedReal name = "PLC_PATRIOTISM_HAPPY_BONUS" value = 0.2) * Statistic Count condition = And [     Planet
                         OwnedBy empire = Source.Owner
                         Species name = Source.Species
-                    ])
+                    ]) - 2
             ]
     graphic = "icons/policies/social_patriotism.png"
 

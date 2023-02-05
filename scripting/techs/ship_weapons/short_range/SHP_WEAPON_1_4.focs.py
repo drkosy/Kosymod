@@ -6,10 +6,10 @@ Tech(
     description="SHP_WEAPON_1_4_DESC",
     short_description="SHIP_WEAPON_IMPROVE_SHORT_DESC",
     category="SHIP_WEAPONS_CATEGORY",
-    researchcost=10 * TECH_COST_MULTIPLIER,
+    researchcost=20 * TECH_COST_MULTIPLIER,
     researchturns=2,
     tags=["PEDIA_SR_WEAPON_TECHS"],
-    prerequisites="SHP_WEAPON_1_3",
+    prerequisites=["SHP_WEAPON_1_3"],
     effectsgroups=WEAPON_UPGRADE_CAPACITY_EFFECTS("SR_WEAPON_1_1", 1),
     graphic="icons/ship_parts/mass-driver-4.png",
 )

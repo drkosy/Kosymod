@@ -46,7 +46,6 @@ Species
         "PLC_BUREAUCRACY"
         "PLC_CHECKPOINTS"
         "PLC_ENVIRONMENTALISM"
-        "PLC_INTERSTELLAR_INFRA"
         "PLC_THINKTANKS"
         "PLC_BUREAUCRACY"
     ]

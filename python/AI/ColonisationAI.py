@@ -19,6 +19,12 @@ from colonization.planet_supply import get_planet_supply
 from common.print_utils import Number, Sequence, Table, Text
 from empire.colony_builders import can_build_colony_for_species, get_colony_builders
 from EnumsAI import EmpireProductionTypes, MissionType, PriorityType, ShipRoleType
+from expansion_plans import (
+    get_colonisable_outpost_ids,
+    get_colonisable_planet_ids,
+    update_colonisable_outpost_ids,
+    update_colonisable_planet_ids,
+)
 from freeorion_tools import get_ship_part, tech_is_complete
 from freeorion_tools.caching import cache_by_turn_persistent, cache_for_current_turn
 from freeorion_tools.timers import AITimer
@@ -163,8 +169,7 @@ def get_colony_fleets():
 
     sorted_planets = [(planet_id, score[:2]) for planet_id, score in sorted_planets if score[0] > 0]
     # export planets for other AI modules
-    aistate.colonisablePlanetIDs.clear()
-    aistate.colonisablePlanetIDs.update(sorted_planets)
+    update_colonisable_planet_ids(sorted_planets)
 
     evaluated_outpost_planets = assign_colonisation_values(evaluated_outpost_planet_ids, MissionType.OUTPOST, None)
     # if outposted planet would be in supply range, let outpost value be best of outpost value or colonization value
@@ -184,15 +189,13 @@ def get_colony_fleets():
 
     sorted_outposts = [(planet_id, score[:2]) for planet_id, score in sorted_outposts if score[0] > 0]
     # export outposts for other AI modules
-    aistate.colonisableOutpostIDs.clear()
-    aistate.colonisableOutpostIDs.update(sorted_outposts)
+    update_colonisable_outpost_ids(sorted_outposts)
     colonization_timer.stop_print_and_clear()
 
 
 # TODO: clean up suppliable versus annexable
 def assign_colonisation_values(planet_ids, mission_type, species, detail=None, return_all=False):
     """Creates a dictionary that takes planetIDs as key and their colonisation score as value."""
-    empire_research_list = tuple(element.tech for element in fo.getEmpire().researchQueue)
     if detail is None:
         detail = []
     orig_detail = detail
@@ -214,6 +217,7 @@ def assign_colonisation_values(planet_ids, mission_type, species, detail=None, r
     for planet_id in planet_ids:
         pv = []
         for spec_name in try_species:
+            # TODO: this function never returned detail to its caller, can we remove it?
             detail = orig_detail[:]
             # appends (score, species_name, detail)
             pv.append(
@@ -223,7 +227,6 @@ def assign_colonisation_values(planet_ids, mission_type, species, detail=None, r
                         mission_type=mission_type,
                         spec_name=spec_name,
                         detail=detail,
-                        empire_research_list=empire_research_list,
                     ),
                     spec_name,
                     detail,
@@ -249,7 +252,7 @@ def assign_colony_fleets_to_colonise():
     all_colony_fleet_ids = FleetUtilsAI.get_empire_fleet_ids_by_role(MissionType.COLONISATION)
     send_colony_ships(
         FleetUtilsAI.extract_fleet_ids_without_mission_types(all_colony_fleet_ids),
-        list(aistate.colonisablePlanetIDs.items()),
+        list(get_colonisable_planet_ids().items()),
         MissionType.COLONISATION,
     )
 
@@ -257,12 +260,12 @@ def assign_colony_fleets_to_colonise():
     all_outpost_fleet_ids = FleetUtilsAI.get_empire_fleet_ids_by_role(MissionType.OUTPOST)
     send_colony_ships(
         FleetUtilsAI.extract_fleet_ids_without_mission_types(all_outpost_fleet_ids),
-        list(aistate.colonisableOutpostIDs.items()),
+        list(get_colonisable_outpost_ids().items()),
         MissionType.OUTPOST,
     )
 
 
-def send_colony_ships(colony_fleet_ids, evaluated_planets, mission_type):
+def send_colony_ships(colony_fleet_ids, evaluated_planets, mission_type):  # noqa: max-complexity
     """sends a list of colony ships to a list of planet_value_pairs"""
     fleet_pool = colony_fleet_ids[:]
     try_all = False
@@ -282,7 +285,7 @@ def send_colony_ships(colony_fleet_ids, evaluated_planets, mission_type):
         if score > (0.8 * cost) and score > MINIMUM_COLONY_SCORE
     ]
 
-    debug("Colony/outpost ship matching: fleets %s to planets %s" % (fleet_pool, evaluated_planets))
+    debug(f"Colony/outpost ship matching: fleets {fleet_pool} to planets {evaluated_planets}")
 
     if try_all:
         debug("Trying best matches to current colony ships")
@@ -393,7 +396,7 @@ def __print_candidate_table(candidates, mission, show_detail=False):
         first_column = Number("Score")
         get_first_column_value = itemgetter(0)
     else:
-        warning("__print_candidate_table(%s, %s): Invalid mission type" % (candidates, mission))
+        warning(f"__print_candidate_table({candidates}, {mission}): Invalid mission type")
         return
     columns = [first_column, Text("Planet"), Text("System"), Sequence("Specials")]
     if show_detail:
@@ -411,7 +414,7 @@ def __print_candidate_table(candidates, mission, show_detail=False):
             if show_detail:
                 entries.append(score_tuple[-1])
             candidate_table.add_row(*entries)
-    candidate_table.print_table(info)
+    info(candidate_table)
 
 
 class OrbitalColonizationPlan:
@@ -510,7 +513,6 @@ class OrbitalColonizationPlan:
             mission_type=MissionType.OUTPOST,
             spec_name=None,
             detail=None,
-            empire_research_list=None,
         )
         for species in get_colony_builders():
             this_score = calculate_planet_colonization_rating(
@@ -518,7 +520,6 @@ class OrbitalColonizationPlan:
                 mission_type=MissionType.COLONISATION,
                 spec_name=species,
                 detail=None,
-                empire_research_list=None,
             )
             planet_score = max(planet_score, this_score)
         self.__last_score_update = fo.currentTurn()
@@ -582,7 +583,7 @@ class OrbitalColonizationManager:
             return
         self._colonization_plans[target_id] = OrbitalColonizationPlan(target_id, source_id)
 
-    def turn_start_cleanup(self):
+    def turn_start_cleanup(self):  # noqa: max-complexity
         universe = fo.getUniverse()
         # clean up invalid or finished plans
         for pid in list(self._colonization_plans.keys()):

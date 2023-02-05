@@ -16,9 +16,12 @@ Policy
                 Happiness low = (NamedReal name = "LRN_ALGO_RESEARCH_MIN_STABILITY" value = 8)
             ]
             priority = [[TARGET_AFTER_2ND_SCALING_PRIORITY]]
-            effects = SetTargetResearch value = Value + min(Target.Construction, Target.Population)
+            effects = [
+                SetTargetResearch value = Value + min(Target.Construction, Target.Population)
                         * (NamedReal name = "LRN_ALGO_RESEARCH_TARGET_RESEARCH_PERCONSTRUCTION"
-                                     value = 0.1)
+                                     value = 0.15)
+                SetTargetHappiness value = Value + (NamedReal name = "PLC_AUTO_RESEARCH_HAPPINESS_BONUS" value = 2)
+                ]
     ]
     graphic = "icons/policies/social_auto_research.png"
 

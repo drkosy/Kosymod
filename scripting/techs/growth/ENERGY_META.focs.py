@@ -10,7 +10,7 @@ Tech(
     description="GRO_ENERGY_META_DESC",
     short_description="VARIOUS_SHORT_DESC",
     category="GROWTH_CATEGORY",
-    researchcost=200 * TECH_COST_MULTIPLIER,
+    researchcost=330 * TECH_COST_MULTIPLIER,
     researchturns=15,
     tags=["PEDIA_GROWTH_CATEGORY"],
     prerequisites=[
@@ -44,7 +44,7 @@ Tech(
         EffectsGroup(
             scope=ProductionCenter
             & OwnedBy(empire=Source.Owner)
-            & Focus(type="FOCUS_INDUSTRY")
+            & Focus(type=["FOCUS_INDUSTRY"])
             & Happiness(low=NamedReal(name="GRO_ENERGY_META_MIN_STABILITY", value=20)),
             priority=TARGET_EARLY_BEFORE_SCALING_PRIORITY,
             effects=SetTargetIndustry(
@@ -56,7 +56,7 @@ Tech(
         EffectsGroup(
             scope=ProductionCenter
             & OwnedBy(empire=Source.Owner)
-            & Focus(type="FOCUS_RESEARCH")
+            & Focus(type=["FOCUS_RESEARCH"])
             & Happiness(low=NamedRealLookup(name="GRO_ENERGY_META_MIN_STABILITY")),
             priority=TARGET_EARLY_BEFORE_SCALING_PRIORITY,
             effects=SetTargetResearch(

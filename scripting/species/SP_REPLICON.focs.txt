@@ -20,8 +20,6 @@ Species
     likes = [
         "FOCUS_INDUSTRY"
         "PANOPTICON_SPECIAL"
-        "PLC_INTERSTELLAR_INFRA"
-        "PLC_METROPOLES"
         "PLC_DESIGN_SIMPLICITY"
         "PLC_COLONIZATION"
         "PLC_POPULATION"

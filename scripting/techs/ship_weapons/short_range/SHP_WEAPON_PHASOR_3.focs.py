@@ -9,7 +9,7 @@ Tech(
     researchcost=600 * TECH_COST_MULTIPLIER,
     researchturns=2,
     tags=[ "PEDIA_SR_WEAPON_TECHS" ],
-    prerequisites="SHP_WEAPON_PHASOR_2",
+    prerequisites=["SHP_WEAPON_PHASOR_2"],
     effectsgroups=WEAPON_UPGRADE_CAPACITY_EFFECTS("SR_WEAPON_PHASOR", 4),
     graphic = "icons/ship_parts/laser-red-3.png",
 )

@@ -5,10 +5,10 @@ Tech(
     description="SPY_DETECT_4_DESC",
     short_description="DETECTION_SHORT_DESC",
     category="SPY_CATEGORY",
-    researchcost=500 * TECH_COST_MULTIPLIER,
+    researchcost=840 * TECH_COST_MULTIPLIER,
     researchturns=7,
     tags=["PEDIA_SPY_CATEGORY"],
-    prerequisites="SPY_DETECT_3",
+    prerequisites=["SPY_DETECT_3"],
     unlock=Item(type=UnlockShipPart, name="DT_DETECTOR_4"),
     effectsgroups=[
         EffectsGroup(

@@ -5,7 +5,7 @@ Tech(
     description="PRO_SOL_ORB_GEN_DESC",
     short_description="BUILDING_UNLOCK_SHORT_DESC",
     category="PRODUCTION_CATEGORY",
-    researchcost=125
+    researchcost=200
     * TECH_COST_MULTIPLIER
     * (
         1
@@ -14,7 +14,7 @@ Tech(
     ),
     researchturns=8,
     tags=["PEDIA_PRODUCTION_CATEGORY"],
-    prerequisites="PRO_ORBITAL_GEN",
+    prerequisites=["PRO_ORBITAL_GEN"],
     unlock=Item(type=UnlockBuilding, name="BLD_SOL_ORB_GEN"),
     graphic="icons/building/miniature_sun.png",
 )

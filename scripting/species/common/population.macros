@@ -98,6 +98,18 @@ GOOD_POPULATION
             effects = SetTargetPopulation value = Value +0.25*abs(Value)
 '''
 
+GREAT_POPULATION
+'''     [[BASIC_POPULATION]]
+
+        EffectsGroup
+            description = "GREAT_POPULATION_DESC"
+            scope = Source
+            activation = Planet
+            accountinglabel = "GREAT_POPULATION_LABEL"
+            priority = [[TARGET_POPULATION_SCALING_PRIORITY]]
+            effects = SetTargetPopulation value = Value +0.5*abs(Value)
+'''
+
 // reduces max population in systems with bright stars
 LIGHT_SENSITIVE
 '''
@@ -295,7 +307,7 @@ GASEOUS_BONUS
             ]
             accountinglabel = "GASEOUS_LABEL"
             priority = [[TARGET_POPULATION_SCALING_PRIORITY]]
-            effects = SetTargetPopulation value = Value - 0.5*abs(Value)
+            effects = SetTargetPopulation value = Value + Source.HabitableSize * (1 * Statistic If condition = And [Source OwnerHasTech name = "GRO_ADV_ECOMAN"] + 2 * Statistic If condition = And [Source OwnerHasTech name = "GRO_ENERGY_META"] - 1)
 '''
 
 // @1@ Species key
